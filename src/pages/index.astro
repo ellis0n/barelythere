@@ -1,30 +1,122 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Logo from '../components/Logo.astro';
+const links = [
+  { href: '/releases', text: 'releases' },
+  { href: '/artists', text: 'artists' },
+  { href: '/shows', text: 'shows' },
+  { href: '/contact', text: 'contact' },
+]
+
 ---
 
 <Layout title="Barely There Records">
 
-	<main class="flex flex-col m-auto p-4 max-w-screen-lg text-left sm:text-center">
+	<main class=" m-auto p-4 max-w-screen-lg ">
 		
-		<h1 class="text-5xl ">Barely There</h1>
-		<h2 class="text-xs py-5 m-1 ">putting out tapes, putting off shows</h2>
+		<div class="banner flex p-2 mb-4  sm:justify-center ">
+				<h1 class="text-3xl sm:text-5xl text-white">Barely There</h1>
+			</div>
 
-		<nav class="flex col justify-center ">
-			<ul >
-				<li><a href="/releases">releases</a></li>
-				<li><a href="/artists">artists</a></li>
-				<li><a href="/contact">shows</a></li>
-				<li><a href="/contact">contact</a></li>
-			</ul>
-		</nav>
 
+		<div class="navbar text-white pt-2 flex sm:justify-center relative">
+			<nav class=" navbar-inner flex sm:justify-center mt-2 sm:mt-4 w-full  absolute">
+				<ul class="flex flex-col sm:flex-row max-w-screen-lg" >
+					{links.map((data, index) => (
+						<a href={data.href}>
+							<li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} $`}>
+								{data.text}
+							</li>
+						</a>
+					))}
+				</ul>
+			</nav>
+		</div>
+
+		
+		<div class="content-wrapper max-w-screen-lg mx-auto mt-28 sm:mt-4">
+			<div class="inner-content-wrapper  relative w-auto bg-gray-600  min-h-screen">
+				<h2>
+					News
+				</h2>
+				<p>Conditioner</p>
+			</div>
+		</div>
+		<footer class="mt-4 text-xs flex-row flex justify-center absolute bottom-full mt-3 text-black">
+			<p>© Barely There Records 2021</p>
+			<a href="https://www.instagram.com/barelythererecords/">
+				
+			</a>
+		</footer>
 	</main>
 </Layout>
 
 <style>
 	main {
 		color: rgb(236, 235, 238);
-		font-family: 'DotGothic16', sans-serif;
+		font-family: dotgothic16;
 	}
+
+
+
+	.navbar{
+		box-shadow: inset 0px 2px white;
+	}
+
+	.navbar::before{
+		content: '';
+		display: absolute;
+		width: 100vw;
+		height: 100px;
+		transition: width .3s;
+		background-image: url('/IMG_0539.svg');
+		background-repeat: no-repeat;
+		background-position: right;
+		
+		filter: invert(1);
+		opacity: .1;
+		z-index: 0;
+
+	}
+
+		@media (min-width: 640px) {
+		.navbar::before{
+			background-repeat: repeat;
+			opacity: 0.08;
+		} 
+		
+	}
+
+	.navbar-inner{
+	}
+	.nav-item:hover{
+		box-shadow: inset 0px -2px white;
+		transition: box-shadow .25s;
+		position: relative;
+		bottom: 0;
+		padding-bottom: 10px;
+	}
+
+	.nav-item:hover:before{
+		content: '';
+		display: block;
+		width: 0px;
+		height: 2px;
+		background: white;
+		transition: width .3s;
+
+
+
+	}
+
+.content-wrapper{
+
+}	
+
+	.footer{
+		box-shadow: inset 0px 2px white;
+	}
+
+
 
 </style>
