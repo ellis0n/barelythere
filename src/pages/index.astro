@@ -24,7 +24,7 @@ const links = [
 				<ul class="flex flex-col sm:flex-row max-w-screen-lg" >
 					{links.map((data, index) => (
 						<a href={data.href}>
-							<li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} $`}>
+							<li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} pr-12 sm:pr-0 sm:pb-px`}>
 								{data.text}
 							</li>
 						</a>
@@ -34,15 +34,19 @@ const links = [
 		</div>
 
 		
-		<div class="content-wrapper max-w-screen-lg mx-auto mt-28 sm:mt-4">
-			<div class="inner-content-wrapper  relative w-auto bg-gray-600  min-h-screen">
+		<div class="content-wrapper max-w-screen-lg mx-auto mt-28 sm:mt-0">
+			<div class="inner-content-wrapper  relative w-auto rounded-sm min-h-screen border-2 p-6">
 				<h2>
 					News
 				</h2>
-				<p>Conditioner</p>
+				<p>---</p>
+				<br/>
+				<h3>Conditioner - COW</h3>
+				<br/> <p>Conditioner Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis maiores dicta aliquam, animi corrupti assumenda eos facere beatae ipsum porro.</p>
+				<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1028667214/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://ccconditionerrr.bandcamp.com/album/low-point">LOW POINT by CONDITIONER</a></iframe>
 			</div>
 		</div>
-		<footer class="mt-4 text-xs flex-row flex justify-center absolute bottom-full mt-3 text-black">
+		<footer class="mt-4 text-xs flex-row flex justify-center bottom-full  text-white">
 			<p>© Barely There Records 2021</p>
 			<a href="https://www.instagram.com/barelythererecords/">
 				
@@ -84,39 +88,35 @@ const links = [
 			background-repeat: repeat;
 			opacity: 0.08;
 		} 
+
+		.nav-item:hover:before{
+			height: 12px;
+			padding: 0;
+			box-shadow: inset -1px 0 0 0 black ;
+		}
 		
 	}
 
-	.navbar-inner{
-	}
 	.nav-item:hover{
-		box-shadow: inset 0px -2px white;
+		box-shadow: inset -1px 0px 0px 1rem rgba(255, 255, 255, 0.219), inset 0px -2px 0px 0px rgba(255, 255, 255, 0.199);
 		transition: box-shadow .25s;
+		padding-right: 25%;
 		position: relative;
 		bottom: 0;
-		padding-bottom: 10px;
+		background: black;
 	}
 
 	.nav-item:hover:before{
 		content: '';
 		display: block;
 		width: 0px;
-		height: 2px;
+		height: 0px;
 		background: white;
 		transition: width .3s;
-
-
-
-	}
-
-.content-wrapper{
-
-}	
+	}	
 
 	.footer{
 		box-shadow: inset 0px 2px white;
 	}
-
-
 
 </style>
