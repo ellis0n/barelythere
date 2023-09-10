@@ -1,0 +1,87 @@
+---
+interface Props {
+	links: Array<{ href: string; text: string; cur: boolean }>;
+}
+
+const { links } = Astro.props;
+---
+<div class="navbar text-white pt-2 flex sm:justify-center relative">
+			<nav class=" navbar-inner flex sm:justify-center mt-2 sm:mt-4 w-full">
+				<ul class="flex flex-col sm:flex-row max-w-screen-lg" >
+					{links.map((data, index) => (
+						<a href={data.href}>
+							<li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} pr-12 sm:pr-0 sm:pb-px` + (data.cur ? ' active' : '')}
+								>
+								{data.text}
+							</li>							
+
+						</a>
+					))}
+				</ul>
+			</nav>
+		</div>
+<style>
+
+    .navbar {
+        box-shadow: inset 0px 2px white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .navbar::after{
+        content: '';
+        /* display: block; */
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        transition: width .3s;
+        background-image: url('/IMG_0539.svg');
+        background-repeat: no-repeat;
+        background-position: right;
+        filter: invert(1);
+        opacity: 1;
+        z-index: -1;
+        
+    }
+    
+    @media (min-width: 640px) {
+        .navbar::after{
+            background-repeat: repeat;
+            opacity: 0.08;
+        } 
+        
+        .nav-item:hover:before{
+            height: 12px;
+            padding: 0;
+            box-shadow: inset -1px 0 0 0 black ;
+        }
+        
+    }
+
+    .nav-item {
+        border-radius: 2px;
+        border: 2px 0px solid white;
+    }
+
+    .nav-item:hover, .active{
+        box-shadow: inset -1px 0px 0px 1rem rgba(255, 255, 255, 0.219), inset 0px -2px 0px 0px rgba(255, 255, 255, 0.199);
+        transition: box-shadow .25s;
+        padding-right: 25%;
+        position: relative;
+        bottom: 0;
+        background: black;
+    }
+
+    .nav-item:hover:before{
+        content: '';
+        display: block;
+        width: 0px;
+        height: 0px;
+        background: white;
+        transition: width .3s;
+    }	
+    
+    </style>
