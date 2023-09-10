@@ -5,16 +5,16 @@ interface Props {
 
 const { links } = Astro.props;
 ---
-<div class="navbar text-white pt-2 flex sm:justify-center relative">
-			<nav class=" navbar-inner flex sm:justify-center mt-2 sm:mt-4 w-full">
-				<ul class="flex flex-col sm:flex-row max-w-screen-lg" >
+<div class="navbar text-white pt-2 flex">
+			<nav class=" navbar-inner flex sm:justify-right mt-24  w-full">
+				<ul class="flex flex-col sm:flex-row justify-end
+                max-w-screen-lg" >
 					{links.map((data, index) => (
 						<a href={data.href}>
-							<li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} pr-12 sm:pr-0 sm:pb-px` + (data.cur ? ' active' : '')}
+							<li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} pl-2 sm:px-4  sm:pb-px sm:text-2xl` + (data.cur ? ' active' : '')}
 								>
 								{data.text}
 							</li>							
-
 						</a>
 					))}
 				</ul>
@@ -25,24 +25,25 @@ const { links } = Astro.props;
     .navbar {
         box-shadow: inset 0px 2px white;
         display: flex;
-        justify-content: center;
+        justify-content: right;
         align-items: center;
         position: relative;
         z-index: 1;
+        overflow-y: clip;
+        overflow-y: clip;
     }
     
     .navbar::after{
         content: '';
-        /* display: block; */
         position: absolute;
-        width: 100vw;
+        width: 170%;
         height: 100%;
         transition: width .3s;
         background-image: url('/IMG_0539.svg');
         background-repeat: no-repeat;
         background-position: right;
         filter: invert(1);
-        opacity: 1;
+        opacity: 0.5;
         z-index: -1;
         
     }
@@ -50,28 +51,25 @@ const { links } = Astro.props;
     @media (min-width: 640px) {
         .navbar::after{
             background-repeat: repeat;
-            opacity: 0.08;
+            opacity: 0.1;
         } 
         
         .nav-item:hover:before{
-            height: 12px;
-            padding: 0;
-            box-shadow: inset -1px 0 0 0 black ;
+            /* box-shadow: inset -1px 0 0 0 black ; */
         }
         
     }
 
     .nav-item {
         border-radius: 2px;
-        border: 2px 0px solid white;
+        
     }
 
     .nav-item:hover, .active{
         box-shadow: inset -1px 0px 0px 1rem rgba(255, 255, 255, 0.219), inset 0px -2px 0px 0px rgba(255, 255, 255, 0.199);
         transition: box-shadow .25s;
-        padding-right: 25%;
+        /* padding-right: 25%; */
         position: relative;
-        bottom: 0;
         background: black;
     }
 

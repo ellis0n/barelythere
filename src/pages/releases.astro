@@ -1,60 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Logo from '../components/Logo.astro';
+import ContentWrapper from '../components/ContentWrapper.astro';
+import Header from '../components/Header.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
 const links = [
-	 {href: "/", text: "home", cur: false },
+	{ href: "/", text: "home", cur: false },
 	{ href: '/releases', text: 'releases', cur: true },
 	{ href: '/shows', text: 'shows', cur: false },
 	{ href: '/contact', text: 'contact', cur: false },
 ]
 
+
+
 ---
 
 <Layout title="Barely There Records">
-
 	<main class=" m-auto p-4 max-w-screen-lg ">
-		
-		<div class="banner flex p-2 mb-4  sm:justify-center ">
-				<h1 class="text-3xl sm:text-5xl text-white">Barely There Records</h1>
-			</div>
-
-
-		<div class="navbar text-white pt-2 flex sm:justify-center relative">
-			<nav class=" navbar-inner flex sm:justify-center mt-2 sm:mt-4 w-full  absolute">
-				<ul class="flex flex-col sm:flex-row max-w-screen-lg" >
-					{links.map((data, index) => (
-						<a href={data.href}>
-							<li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} pr-12 sm:pr-0 sm:pb-px` + (data.cur ? ' active' : '')}
-								>
-								{data.text}
-							</li>							
-
-						</a>
-					))}
-				</ul>
-			</nav>
-		</div>
-
-		
-		<div class="content-wrapper max-w-screen-lg mx-auto mt-44 sm:mt-0">
-			<div class="inner-content-wrapper  relative w-auto rounded-sm min-h-screen border-2 p-6">
+		<Header />
+		<Navbar links={links} />		
+		<ContentWrapper>
 				<h2>
 					Releases
 				</h2>
 				<p>---</p>
 				<br/>
-				<h3>Conditioner - COW</h3>
-				<br/> <p>Conditioner Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis maiores dicta aliquam, animi corrupti assumenda eos facere beatae ipsum porro.</p>
-				<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1028667214/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://ccconditionerrr.bandcamp.com/album/low-point">LOW POINT by CONDITIONER</a></iframe>
-			</div>
-		</div>
-		<footer class="mt-4 text-xs flex-row flex justify-center bottom-full  text-white">
-			<p>© Barely There Records 2021</p>
-			<a href="https://www.instagram.com/barelythererecords/">
-				
-			</a>
-		</footer>
-	</main>
+				<h3>Releases - Aug 2023</h3>
+				<br/>
+		</ContentWrapper>
+		<Footer/>
 </Layout>
 
 <style>
@@ -63,62 +39,5 @@ const links = [
 		font-family: dotgothic16;
 	}
 
-
-
-	.navbar{
-		box-shadow: inset 0px 2px white;
-	}
-
-	.navbar::before{
-		content: '';
-		display: absolute;
-		width: 100vw;
-		height: 100px;
-		transition: width .3s;
-		background-image: url('/IMG_0539.svg');
-		background-repeat: no-repeat;
-		background-position: right;
-		
-		filter: invert(1);
-		opacity: .1;
-		z-index: 0;
-
-	}
-
-		@media (min-width: 640px) {
-		.navbar::before{
-			background-repeat: repeat;
-			opacity: 0.08;
-		} 
-
-		.nav-item:hover:before{
-			height: 12px;
-			padding: 0;
-			box-shadow: inset -1px 0 0 0 black ;
-		}
-		
-	}
-
-	.nav-item:hover, .active{
-		box-shadow: inset -1px 0px 0px 1rem rgba(255, 255, 255, 0.219), inset 0px -2px 0px 0px rgba(255, 255, 255, 0.199);
-		transition: box-shadow .25s;
-		padding-right: 25%;
-		position: relative;
-		bottom: 0;
-		background: black;
-	}
-
-	.nav-item:hover:before{
-		content: '';
-		display: block;
-		width: 0px;
-		height: 0px;
-		background: white;
-		transition: width .3s;
-	}	
-
-	.footer {
-		box-shadow: inset 0px 2px white;
-	}
 
 </style>
