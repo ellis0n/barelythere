@@ -1,0 +1,42 @@
+.album-carousel {
+	display: grid;
+	position: absolute;
+	grid-template-columns: repeat(4, 1fr);
+	/* top: 0; */
+	/* left: 0; */
+	z-index: -1;
+	transition: all 0.5s ease-in-out;
+
+	filter: drop-shadow(
+		0 0 0.75rem rgba(0, 0, 0, 0.5) drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5))
+	);
+}
+
+.album-carousel__album {
+	transition: all 0.5s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+	.album-carousel {
+		display: flex;
+		transition: all 0.5s ease-in-out;
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+	}
+	.album-carousel__album {
+		transition: all 0.5s ease-in-out;
+		width: 120px;
+	}
+	.album-carousel__album:hover {
+		transform: scale(1.2);
+	}
+}
+
+img {
+	opacity: 0.8;
+	aspect-ratio: 1/1;
+	transition: all 0.5s ease-in-out;
+	mix-blend-mode: color-burn;
+}
