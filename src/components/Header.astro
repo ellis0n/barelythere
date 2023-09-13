@@ -1,6 +1,20 @@
 ---
+
+import Navbar from './Navbar.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
 ---
 
-<div class="banner flex p-2 mb-4 sm:justify-center ">
-				<h1 class="text-3xl sm:text-5xl text-white">Barely There Records</h1>
-		</div>
+<header class="banner flex p-2 mb-4 sm:justify-center ">
+	<h1 class="text-3xl sm:text-5xl text-white">{title}</h1>
+</header>
+
+<style>
+	header {
+		font-family: dotgothic16;
+	}

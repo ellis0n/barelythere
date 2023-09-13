@@ -1,118 +1,44 @@
 ---
-import AlbumCarousel from './AlbumCarousel/AlbumCarousel.jsx'
-
 interface Props {
-	links: Array<{ href: string; text: string; cur: boolean }>;
+	current: string;
 }
 
-const { links } = Astro.props;
+const {current} = Astro.props;
 
-const artwork = [
+const links = [
     {
-        "url": "https://f4.bcbits.com/img/a2100598597_2.jpg",
-        "name": "Intern"
+        text: 'Home',
+        href: '/',
     },
     {
-        "url": "https://f4.bcbits.com/img/a1675134041_2.jpg",
-        "name": "Swam"
+        text: 'Projects',
+        href: '/projects',
     },
     {
-        "url": "https://f4.bcbits.com/img/a0627224211_2.jpg",
-        "name": "Andrew Smith"
+        text: 'Music',
+        href: '/music',
     },
     {
-        "url": "https://f4.bcbits.com/img/a3481406581_2.jpg",
-        "name": "Mild Manors"
+        text: 'Blog',
+        href: '/blog',
     },
-    {
-        "url": "https://f4.bcbits.com/img/a0850957949_2.jpg",
-        "name": "Gallery"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a2753234509_2.jpg",
-        "name": "Real Tree"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a1209491437_2.jpg",
-        "name": "Bugfight"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a1564188441_2.jpg",
-        "name": "Bap"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a2161299333_2.jpg",
-        "name": "Hollow Grave"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a2732255997_2.jpg",
-        "name": "Lrning"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a3966229126_2.jpg",
-        "name": "Already Dead"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a1497488945_2.jpg",
-        "name": "El Toro"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a2692663087_2.jpg",
-        "name": "Monroe"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a1034879150_2.jpg",
-        "name": "Kerosene"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a3857910752_2.jpg",
-        "name": "Tea-Pose"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a3571539140_2.jpg",
-        "name": "Already Dead"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a3736869134_2.jpg",
-        "name": "Already Dead"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a0080315193_2.jpg",
-        "name": "Already Dead"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a3643250858_2.jpg",
-        "name": "Monroe"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a2832355784_2.jpg",
-        "name": "Monroe"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a2606961355_2.jpg",
-        "name": "Already Dead"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a3431981979_2.jpg",
-        "name": "Already Dead"
-    },
-    {
-        "url": "https://f4.bcbits.com/img/a2614224951_2.jpg",
-        "name": "Intern"
+];
+
+const checkUrl = (url: string, href: string) => {
+    if (url === href) {
+        return 'active';
     }
-]
+    return '';
+};
 ---
-<div class="navbar text-white pt-2 ">
-    <!-- <AlbumCarousel/> -->
-    <nav class=" navbar-inner  mt-24 ">
-        <ul class="sm:flex sm:flex-row 
-        max-w-screen-lg" >
-            {links.map((data, index) => (
-                <a href={data.href}>
-                    <li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} pl-2 sm:px-4 sm:pb-px sm:text-2xl` + (data.cur ? ' active' : '')}
-                        >
-                        {data.text}
-                    </li>							
+<div class="navbar text-white pt-2 pl-4 mb-2 sm:flex sm:flex-row sm:justify-center">
+    <nav class="navbar-inner">
+        <ul class="sm:flex sm:flex-row sm:justify-center max-w-screen-lg">
+            {links.map((link, index) => (
+                <a href={link.href}>
+                    <li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} pl-2 sm:px-4 sm:pb-px sm:text-2xl ${checkUrl(link.href, current)}`}>
+                        {link.text}
+                    </li>
                 </a>
             ))}
         </ul>
@@ -122,78 +48,28 @@ const artwork = [
 <style>
 
     .navbar {
-        box-shadow: inset 0px 2px white;
-        display: flex;
-        justify-content: right;
-        align-items: center;
-        position: relative;
         z-index: 1;
         overflow: clip;
+        padding-bottom: 4px;
+        font-family: dotgothic16;
     }
-    
-    .navbar::after{
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        transition: width .3s;
-        background-image: url('/IMG_0539.svg');
-        background-repeat: no-repeat;
-        background-position: right;
-        filter: invert(1);
-        opacity: 0.3;
-        z-index: -1;
-        
-    }
-    
+
     @media (min-width: 640px) {
-        .navbar::after{
-            background-repeat: repeat;
-            opacity: 0.1;
-        } 
-        
-        .nav-item:hover:before{
-            /* box-shadow: inset -1px 0 0 0 black ; */
+        .nav-item:hover:before {
+            /* box-shadow: inset -1px 0 0 0 rgb(255, 255, 255) ; */
         }
-        
     }
 
     .nav-item {
         border-radius: 2px;
         background-color: black;
-        
     }
 
-    .nav-item:hover, .active{
-        box-shadow: inset -1px 0px 0px 1rem rgba(255, 255, 255, 0.219), inset 0px -2px 0px 0px rgba(255, 255, 255, 0.199);
-        transition: filter 0.s;
+    .nav-item:hover, .active {
+        box-shadow: inset -1px 0px 0px 2rem rgba(255, 255, 255, 0.219);
+        transition: box-shadow 0.1s;
         position: relative;
         background: black;
-        filter: invert(1)
     }
 
-    .nav-item:hover:before{
-        content: '';
-        display: block;
-        width: 0px;
-        height: 0px;
-        background: white;
-        transition: width .3s;
-    }	
-
-    .album-carousel{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-    }
-
-    .album-carousel__img{
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
-    
-    </style>
+</style>
