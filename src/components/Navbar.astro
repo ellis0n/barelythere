@@ -7,20 +7,24 @@ const {current} = Astro.props;
 
 const links = [
     {
-        text: 'Home',
+        text: 'home',
         href: '/',
     },
     {
-        text: 'Projects',
-        href: '/projects',
+        text: 'releases',
+        href: '/releases',
     },
     {
-        text: 'Music',
-        href: '/music',
+        text: 'shows',
+        href: '/shows',
     },
     {
-        text: 'Blog',
-        href: '/blog',
+        text: 'blog',
+        href: '/blogs',
+    },
+    {
+        text: 'zines',
+        href: '/zines',
     },
 ];
 
@@ -50,7 +54,6 @@ const checkUrl = (url: string, href: string) => {
     .navbar {
         z-index: 1;
         overflow: clip;
-        padding-bottom: 4px;
         font-family: dotgothic16;
     }
 
@@ -58,11 +61,6 @@ const checkUrl = (url: string, href: string) => {
         .nav-item:hover:before {
             /* box-shadow: inset -1px 0 0 0 rgb(255, 255, 255) ; */
         }
-    }
-
-    .nav-item {
-        border-radius: 2px;
-        background-color: black;
     }
 
     .nav-item:hover, .active {

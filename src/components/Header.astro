@@ -6,15 +6,17 @@ interface Props {
 	title: string;
 }
 
-const { title } = Astro.props;
+const { subtitle } = Astro.props;
 
 ---
 
 <header class="banner flex p-2 mb-4 sm:justify-center ">
-	<h1 class="text-3xl sm:text-5xl text-white">{title}</h1>
+	<h1>barely there</h1>
+	<h2 class="text-3xl sm:text-5xl text-white">{subtitle}</h2>
 </header>
 
 <style>
 	header {
 		font-family: dotgothic16;
 	}
+</style>
