@@ -1,5 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const posts = await getCollection('posts');
 ---
 
 <Layout title="barely there" current="/blogs">
@@ -13,14 +16,12 @@ import Layout from '../layouts/Layout.astro';
 
 	
 
-	<ul>
-		<li>
-			<a href="/blogs/one">1. one</a>
-		</li>
-		<li>
-			<a href="/blogs/two">2. two </a>
-		</li>
-
-	</ul>
+	 <ul>
+        {posts.map(post => (
+            <li>
+                <a href={`/blogs/${post.slug}`}>{post.slug}: {post.data.title}</a>
+            </li>
+        ))}
+    </ul>
 </Layout>
 
