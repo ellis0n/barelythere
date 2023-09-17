@@ -109,6 +109,7 @@ const AlbumCarousel = () => {
 			>
 				{artwork.map((album) => (
 					<div
+						key={album.name}
 						className={`album-carousel__album ${
 							scroll ? "album-carousel__album--active" : ""
 						}`}

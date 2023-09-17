@@ -1,6 +1,6 @@
 .album-carousel {
 	display: grid;
-	position: absolute;
+	position: block;
 	grid-template-columns: repeat(4, 1fr);
 	z-index: -1;
 	transition: all 0.5s ease-in-out;

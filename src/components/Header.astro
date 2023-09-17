@@ -3,18 +3,20 @@
 import Navbar from './Navbar.astro';
 
 interface Props {
-	title: string;
+	subtitle: string;
+
 }
 
-const { title } = Astro.props;
 
 ---
 
-<header class="banner flex p-2 mb-4 sm:justify-center ">
-	<h1 class="text-3xl sm:text-5xl text-white">{title}</h1>
+<header class="banner flex p-2 mb-4 justify-center pointer-events-none">
+	<h1 class="text-7xl sm:text-7xl md:text-8xl ">barely there</h1>
+	<!-- <h2>current dir</h2> -->
 </header>
 
 <style>
 	header {
 		font-family: dotgothic16;
 	}
+</style>

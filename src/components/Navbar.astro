@@ -7,20 +7,24 @@ const {current} = Astro.props;
 
 const links = [
     {
-        text: 'Home',
+        text: 'home',
         href: '/',
     },
     {
-        text: 'Projects',
-        href: '/projects',
+        text: 'releases',
+        href: '/releases',
     },
     {
-        text: 'Music',
-        href: '/music',
+        text: 'shows',
+        href: '/shows',
     },
     {
-        text: 'Blog',
-        href: '/blog',
+        text: 'blog',
+        href: '/blogs',
+    },
+    {
+        text: 'zines',
+        href: '/zines',
     },
 ];
 
@@ -31,12 +35,12 @@ const checkUrl = (url: string, href: string) => {
     return '';
 };
 ---
-<div class="navbar text-white pt-2 pl-4 mb-2 sm:flex sm:flex-row sm:justify-center">
+<div class="navbar text-white pt-2 sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-2xl">
     <nav class="navbar-inner">
         <ul class="sm:flex sm:flex-row sm:justify-center max-w-screen-lg">
             {links.map((link, index) => (
                 <a href={link.href}>
-                    <li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} pl-2 sm:px-4 sm:pb-px sm:text-2xl ${checkUrl(link.href, current)}`}>
+                    <li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} pl-2 sm:px-4   ${checkUrl(link.href, current)}`}>
                         {link.text}
                     </li>
                 </a>
@@ -50,7 +54,6 @@ const checkUrl = (url: string, href: string) => {
     .navbar {
         z-index: 1;
         overflow: clip;
-        padding-bottom: 4px;
         font-family: dotgothic16;
     }
 
@@ -60,16 +63,12 @@ const checkUrl = (url: string, href: string) => {
         }
     }
 
-    .nav-item {
-        border-radius: 2px;
-        background-color: black;
-    }
-
     .nav-item:hover, .active {
         box-shadow: inset -1px 0px 0px 2rem rgba(255, 255, 255, 0.219);
         transition: box-shadow 0.1s;
         position: relative;
         background: black;
+        color: #fff;
     }
 
 </style>
