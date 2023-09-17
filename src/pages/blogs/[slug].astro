@@ -1,8 +1,9 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { CollectionEntry, getCollection } from "astro:content";
-import ContentLayout from '../../layouts/ContentLayout.astro';
+import BlogLayout from '../../layouts/BlogLayout.astro';
 import Layout from "../../layouts/Layout.astro";
+import ContentLayout from "../../layouts/ContentLayout.astro";
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -20,19 +21,10 @@ const { Content } = Astro.props;
 console.log(post)
 const relatedPosts = Astro.props.post.data.relatedPosts;
 ---
-<Layout
-  title={post.data.title}
-  current="/blogs"
 
 
->
-
-  <ContentLayout>
-    Blog 
-    <br/>
-    ---
-    
-    <h1>{post.data.title}</h1>
+  <BlogLayout>
+    <h1 class="text-4xl">{post.data.title}</h1>
     <p>{post.data.author.id}</p>
     <br/>
 
@@ -47,5 +39,4 @@ const relatedPosts = Astro.props.post.data.relatedPosts;
           </p>
       ))
     }
-  </ContentLayout>
-</Layout>
+  </BlogLayout>
