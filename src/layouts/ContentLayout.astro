@@ -1,5 +1,11 @@
-<main class=" w-auto flex  mt-12 mx-8 sm:mx-20 md:mx-32 lg:mx-44 outline">
+<main class="main w-auto flex mt-12 mx-8 sm:mx-20 md:mx-32 lg:mx-44 outline">
 		<div class="mx-4">
 			<slot />
 		</div>
 </main>
+
+<style>
+	.main{
+		min-height: calc(100vh - 20.5rem);
+	}
+</style>

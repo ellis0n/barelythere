@@ -6,6 +6,7 @@ description: im writing a post
 relatedPosts: [two]
 draft: false
 date: 2023-09-17
+tag: barely there, website
 ---
 
 # Omne nec
