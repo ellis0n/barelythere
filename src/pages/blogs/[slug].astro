@@ -17,8 +17,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const post = Astro.props.post;
-const { Content } = Astro.props;
-console.log(post)
 const relatedPosts = Astro.props.post.data.relatedPosts;
 ---
 
@@ -28,8 +26,7 @@ const relatedPosts = Astro.props.post.data.relatedPosts;
     <p>{post.data.author.id}</p>
     <br/>
 
-    <p>{post.body}</p>
-
+    <!-- <slot/> -->
     {
       relatedPosts.map(post => (
           <p>see more by glen: 
