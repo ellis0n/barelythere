@@ -35,15 +35,17 @@ const checkUrl = (url: string, href: string) => {
     return '';
 };
 ---
-<div class="navbar text-white pt-2 sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-2xl">
-    <nav class="navbar-inner">
-        <ul class="sm:flex sm:flex-row sm:justify-center max-w-screen-lg">
+<div class="navbar text-white pt-2 sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-2xl fixed right-2 top-24 sm:static ">
+    <nav class="navbar-inner ">
+        <ul class="grid justify-items-end sm:flex sm:flex-row sm:justify-center ">
             {links.map((link, index) => (
-                <a href={link.href}>
-                    <li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} pl-2 sm:px-4   ${checkUrl(link.href, current)}`}>
-                        {link.text}
-                    </li>
-                </a>
+                <li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : 'mt-4 ml-6 sm:ml-0'} sm:px-4    ${checkUrl(link.href, current)}`}>
+                    <a href={link.href}>
+                        <div class="container">
+                            {link.text}
+                        </div>
+                    </a>
+                </li>
             ))}
         </ul>
     </nav>
@@ -53,20 +55,15 @@ const checkUrl = (url: string, href: string) => {
 
     .navbar {
         z-index: 1;
-        overflow: clip;
         font-family: dotgothic16;
+
     }
 
-    @media (min-width: 640px) {
-        .nav-item:hover:before {
-            /* box-shadow: inset -1px 0 0 0 rgb(255, 255, 255) ; */
-        }
-    }
+
 
     .nav-item:hover, .active {
-        box-shadow: inset -1px 0px 0px 2rem rgba(255, 255, 255, 0.219);
+        box-shadow: inset px 0px 0px 2rem rgba(255, 255, 255, 0.219);
         transition: box-shadow 0.1s;
-        position: relative;
         background: black;
         color: #fff;
     }

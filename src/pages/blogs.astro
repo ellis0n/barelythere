@@ -16,7 +16,7 @@ const posts = await getCollection('posts');
 
 	
 
-	 <ul>
+	<ul>
         {posts.map(post => (
             <li>
                 <a href={`/blogs/${post.slug}`}>{post.slug}: {post.data.title}</a>

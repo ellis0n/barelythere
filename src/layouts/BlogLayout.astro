@@ -21,18 +21,14 @@ interface Props {
 
 }
 
-const {frontmatter} = Astro.props;
-
-interface Props {
-	title: string;
-	current: string;
-}
 
 const { title, current } = Astro.props;
-
 ---
 
-<Layout>
+<Layout
+    title={title}
+    current={current}
+>
     <slot/>
 </Layout>
 

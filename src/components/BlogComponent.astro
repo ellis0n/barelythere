@@ -1,0 +1,40 @@
+---
+
+interface Props {
+
+
+    title: string;
+    author: string;
+    date: string;
+    slug: string;
+    relatedPosts: any;
+    content: object;
+
+}
+
+const { title, author, date, slug, relatedPosts, content } = Astro.props;
+---
+
+<h1>
+    {title}
+</h1>
+
+<p>
+    <a href=`../u/${author}`>
+    {author}
+    </a>
+</p>
+
+<p>
+    {date}
+</p>
+
+<p>
+    {slug}
+</p>
+
+<p>
+    {relatedPosts}
+</p>
+
+<slot/>
