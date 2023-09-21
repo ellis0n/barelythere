@@ -4,9 +4,7 @@ const posts = defineCollection({
 	type: "content",
 	schema: z.object({
 		title: z.string(),
-		// Reference a single author from the `authors` collection by `id`
-		author: reference("authors"),
-		// Reference an array of related posts from the `blog` collection by `slug`
+		username: reference("authors"),
 		relatedPosts: z.array(reference("posts")),
 		draft: z.boolean().optional(),
 	}),

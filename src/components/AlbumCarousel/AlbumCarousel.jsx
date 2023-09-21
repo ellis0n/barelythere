@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./AlbumCarousel.css";
 
 const AlbumCarousel = () => {
-	const [scroll, setScroll] = useState(true);
-
 	const artwork = [
 		{
 			url: "https://f4.bcbits.com/img/a2100598597_2.jpg",
@@ -102,19 +100,15 @@ const AlbumCarousel = () => {
 	return (
 		<div>
 			<div
-				className="album-carousel"
+				className="album-carousel mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
 				onClick={(e) => {
 					setScroll(!active);
 				}}
 			>
 				{artwork.map((album) => (
-					<div
-						key={album.name}
-						className={`album-carousel__album ${
-							scroll ? "album-carousel__album--active" : ""
-						}`}
-					>
+					<div key={album.name} className="album-carousel__album">
 						<img src={album.url} alt={album.name} />
+						<p className="album-carousel__album-name">{album.name}</p>
 					</div>
 				))}
 			</div>

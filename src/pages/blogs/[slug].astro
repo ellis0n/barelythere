@@ -28,7 +28,7 @@ const post = Astro.props.post.frontmatter;
 ---
 
 
-  <Layout>
+  <Layout title={post.title} current="/blogs">
 
     <BlogComponent
       title={post.title}

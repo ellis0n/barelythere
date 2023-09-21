@@ -1,6 +1,6 @@
 ---
 title: the first post
-author: liam
+username: liamryan
 description: liams first post
 relatedPosts: []
 draft: false

@@ -1,6 +1,6 @@
 ---
 title: second post
-author: glen
+username: glenmay
 description: this is my second post
 relatedPosts: [one]
 draft: false
