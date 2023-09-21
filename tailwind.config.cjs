@@ -4,11 +4,6 @@ const colors = require("tailwindcss/colors");
 module.exports = {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
-		colors: {
-			transparent: "transparent",
-			current: "currentColor",
-			grey: colors.slate,
-		},
 		extend: {
 			fontFamily: {
 				display: "DotGothic16",

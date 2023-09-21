@@ -10,10 +10,6 @@ import BlogComponent from "../../components/BlogComponent.astro";
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await Astro.glob("../../content/posts/**/*.md");
 
-  posts.forEach(post => {
-    console.log(post.frontmatter)
-  });
-
   return posts
     // .filter((post) => post.frontmatter.data.draft === false)
     .map((post) => ({
@@ -31,14 +27,7 @@ const post = Astro.props.post.frontmatter;
   <Layout title={post.title} current="/blogs">
 
     <BlogComponent
-      title={post.title}
-      author={post.author}
-      date={post.date}
-      slug={post.slug}
-      excerpt={post.excerpt}
-      relatedPosts={post.relatedPosts}
-      image={post.image}
-      content={post.content}
+      post={Astro.props.post.frontmatter}
     >
     <Content/>
   </BlogComponent>
