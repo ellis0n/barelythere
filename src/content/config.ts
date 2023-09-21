@@ -15,8 +15,13 @@ const posts = defineCollection({
 const authors = defineCollection({
 	type: "data",
 	schema: z.object({
-		name: z.string(),
-		link: z.string().url(),
+		username: z.string(),
+		firstname: z.string(),
+		lastname: z.string(),
+		email: z.string(),
+		github: z.string().url(),
+		twitter: z.string().url(),
+		instagram: z.string().url(),
 	}),
 });
 

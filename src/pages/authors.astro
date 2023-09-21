@@ -1,0 +1,21 @@
+---
+
+import Layout from '../layouts/Layout.astro'
+
+import { CollectionEntry, getCollection } from "astro:content";
+
+import authors from '../content/authors/authors.json/'
+
+
+---
+
+<Layout>
+    <h1>Authors</h1>
+       
+    {console.log(authors)}
+    {authors.map((author) => (
+        <div>
+            <h2>{author.firstname}</h2>
+        </div>
+    ))}
+</Layout>
