@@ -1,4 +1,6 @@
 ---
+import { getDataEntryById } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 interface Props {
     post:{
@@ -9,19 +11,19 @@ interface Props {
         draft: boolean;
         date: string;
         slug: string;
-        relatedPosts: array;
+        relatedPosts: string[];
         content: string;
+        avatar: string;
     }
 }
-console.log('here')
-console.log(Astro.props.post)
 
-const { title, username, date, slug, relatedPosts, content, description } = Astro.props.post
+const { title, username, date, relatedPosts, description } = Astro.props.post
+
 ---
 
 <div>
-    <div class="bg-black py-2 text-white">
-        <div class=" text-center">
+    <div class="bg-black text-white mr-2 sm:mr-0">
+        <div class=>
             <h1 class="text-4xl">
                 {title}
             </h1>
@@ -34,7 +36,7 @@ const { title, username, date, slug, relatedPosts, content, description } = Astr
         </div>
     </div>
 
-    <div class="border">
+    <div>
         <p>
             {description}
         </p>
@@ -48,9 +50,9 @@ const { title, username, date, slug, relatedPosts, content, description } = Astr
         
         <p>
             related: 
-            <a href={relatedPosts}>
-                {relatedPosts}
-            </a>
+            {
+                console.log(relatedPosts)
+            }
         </p>
     </div>
     <hr/>

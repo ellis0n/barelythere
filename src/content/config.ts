@@ -20,6 +20,7 @@ const authors = defineCollection({
 		github: z.string().url(),
 		twitter: z.string().url(),
 		instagram: z.string().url(),
+		avatar: z.string().url(),
 	}),
 });
 

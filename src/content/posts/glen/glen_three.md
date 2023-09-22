@@ -1,12 +1,12 @@
 ---
-title: second post
+title: four post
 username: glenmay
-description: this is my second post
-relatedPosts: [one]
+description: this is my fourth post
+relatedPosts: [glen_one, glen_two]
 draft: false
 date: 2023-09-17
 tags: website, conditioner
-slug: two
+slug: "glen_three"
 ---
 
 this is the second blog post. it has two tags.

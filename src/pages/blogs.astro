@@ -6,18 +6,15 @@ const posts = await getCollection('posts');
 ---
 
 <Layout title="barely there - blogs" current="/blogs">
-	<h2>
-		Blog
-	</h2>
-	<p>---</p>
-	<br/>
-
-	<ul>
-        {posts.map(post => (
-            <li>
-                <a href={`/blogs/${post.slug}`}>{post.slug}: {post.data.title}</a>
-            </li>
-        ))}
+	<div>
+        <ul>
+            {posts.map(post => (
+                <li>
+                    {console.log(post.data.username)}
+                    <a href={`/blogs/${post.slug}`}>{post.data.username.id} // {post.data.title}</a>
+                    </li>
+                    ))}
     </ul>
+</div>
 </Layout>
 

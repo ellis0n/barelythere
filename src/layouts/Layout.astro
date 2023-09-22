@@ -20,7 +20,7 @@ const { title, current } = Astro.props;
 <html lang="en">
 	<Head title={ title } />
 	<body>
-		<Header title={title}/>
+		<Header subtitle={title}/>
 		<Navbar current={current} />
 			<ContentLayout title={title}>
 				<slot />
@@ -35,11 +35,8 @@ const { title, current } = Astro.props;
 		background-color: #f2ebebff
 ;
 	}
-
-
 	main {
 		font-family: dotgothic16;
 	}
-
-
 </style>
+

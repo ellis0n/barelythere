@@ -1,10 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { CollectionEntry, getCollection } from "astro:content";
-import BlogLayout from '../../layouts/BlogLayout.astro';
 import Layout from "../../layouts/Layout.astro";
-import ContentLayout from "../../layouts/ContentLayout.astro";
-import BlogComponent from "../../components/BlogComponent.astro";
+import BlogHeader from "../../components/BlogHeader.astro";
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -20,25 +17,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const { Content } = Astro.props.post
 
 const post = Astro.props.post.frontmatter;
-
 ---
 
 
   <Layout title={post.title} current="/blogs">
-
-    <BlogComponent
+    <BlogHeader
       post={Astro.props.post.frontmatter}
-    >
-    <Content/>
-  </BlogComponent>
-
-      <hr class=" mt-4 mb-12"/>
-      <p class="mb-12">see more by <a href=`../${post.author}`>{post.author} </p>
-    {
-      post.relatedPosts.map(post => (
-            <a href={`/blogs/${post.slug}`}>
-              {post.slug}
-            </a>
-      ))
-    }
+    />
+      <Content/>
   </Layout>

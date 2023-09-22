@@ -35,11 +35,11 @@ const checkUrl = (url: string, href: string) => {
     return '';
 };
 ---
-<div class="navbar text-black  sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-xl lg:text-2xl fixed right-2 top-72 sm:static">
+<div class="navbar text-black bg-white rounded-md fixed right-2 top-22 sm:static sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-xl lg:text-2xl ">
     <nav class="navbar-inner sm:pb-4 sm:bg-[#fff]">
-        <ul class="grid justify-items-end sm:flex sm:flex-row sm:justify-center ">
+        <ul class="grid justify-items-end sm:flex sm:flex-row sm:justify-center ml-4 ">
             {links.map((link, index) => (
-                <li class={`nav-item ${index > 0 ? 'mt-4 ml-6' : ' ml-6 sm:ml-0 sm:mt-4'} sm:px-4    ${checkUrl(link.href, current)}`}>
+                <li class={`nav-item ${index > 0 ? 'mt-4 ' : ' ml-6 sm:ml-0 sm:mt-4'} sm:px-4    ${checkUrl(link.href, current)}`}>
                     <a href={link.href}>
                         <div>
                             {link.text}
