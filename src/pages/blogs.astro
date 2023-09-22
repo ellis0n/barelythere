@@ -5,16 +5,12 @@ import Layout from '../layouts/Layout.astro';
 const posts = await getCollection('posts');
 ---
 
-<Layout title="blog" current="/blogs">
+<Layout title="barely there - blogs" current="/blogs">
 	<h2>
 		Blog
 	</h2>
 	<p>---</p>
 	<br/>
-	<h3>Blogs</h3>
-	<br/>
-
-	
 
 	<ul>
         {posts.map(post => (

@@ -20,16 +20,18 @@ const { title, username, date, slug, relatedPosts, content, description } = Astr
 ---
 
 <div>
-    <div class="bg-black text-white">
-        <h1 class="text-4xl">
-            {title}
-        </h1>
-        
-        <h2 class="text-2xl ">
-            <a href=`../${username}`>
-                {username}
-            </a>
-        </h2>
+    <div class="bg-black py-2 text-white">
+        <div class=" text-center">
+            <h1 class="text-4xl">
+                {title}
+            </h1>
+            
+            <h2 class="text-1xl">
+                <a href=`../${username}`>
+                    {username}
+                </a>
+            </h2>
+        </div>
     </div>
 
     <div class="border">
@@ -56,3 +58,17 @@ const { title, username, date, slug, relatedPosts, content, description } = Astr
         <slot/> 
     </div>
 </div>
+
+
+<style>
+
+    a {
+        box-shadow: inset 0 -2px 0 0 #000;
+    }
+    
+    a:hover{
+        color: white;
+        background-color: #000;
+    }
+
+</style>
