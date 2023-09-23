@@ -6,7 +6,7 @@ relatedPosts: []
 draft: false
 date: 2023-09-17
 tag: barely there, website
-slug: "four"
+slug: "welcome"
 ---
 
 # Omne nec

@@ -1,19 +1,20 @@
 ---
+import type { GetStaticPaths } from "astro";
 
 import Layout from '../layouts/Layout.astro'
 
-import { CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 
-const authors = getCollection("authors")
-console.log(authors)
+const authors: CollectionEntry<'authors'>[] = await getCollection("authors");
 ---
 
 <Layout title="barely there - authors">
-    <h1>Authors</h1>
+    <h1>authors</h1>
        
-    <!-- {authors.map((author) => ( -->
+    {authors.map((author) => (
         <div>
-            <!-- <h2>{author.firstname}</h2> -->
+            <h2>{author.data.username}</h2> 
         </div>
-    <!-- )) -->
+    )) 
+    }
 </Layout>

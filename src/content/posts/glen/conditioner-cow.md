@@ -2,11 +2,11 @@
 title: four post
 username: glenmay
 description: this is my fourth post
-relatedPosts: [glen_one, glen_two]
+relatedPosts: [welcome]
 draft: false
 date: 2023-09-17
 tags: website, conditioner
-slug: "glen_three"
+slug: "conditioner-cow"
 ---
 
 this is the second blog post. it has two tags.
