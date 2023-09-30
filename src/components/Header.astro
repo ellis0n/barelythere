@@ -1,6 +1,5 @@
 ---
-// import Navbar from './Navbar.astro';
-import Navbar from '../components/Navbar.jsx';
+import Navbar from './Navbar.astro';
 import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
@@ -11,12 +10,29 @@ interface Props {
 const {subtitle, current} = Astro.props;
 ---
 
-<header class="banner flex p-2 mb-4 justify-left sm:justify-center">
+<header class="banner flex p-2 mb-4 justify-left sm:justify-center" transition:persist>
 	<h1 class="text-6xl mr-24 sm:mr-0 sm:text-7wxl md:text-8xl pointer-events-none">barely there</h1>
 
 		
 	</div>
-	<Navbar current={current}/>
+	<div id="navtoggle" class="z-10 cursor-pointer drop-shadow-md text-black rounded-md fixed bg-white right-2 mt-4 p-2 sm:hidden sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-xl lg:text-2xl opacity-100 hover:opacity-60 transition-all">
+			<div
+				class="w-8 flex mx-auto justify-right sm:hidden "
+			>
+				<button class="mx-auto h-auto w-full sm:hidden">
+					<svg
+						class="w-100 h-100"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 448 512"
+					>
+						<path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+					</svg>
+				</button>
+			</div>
+	</div>
+	<div id="nav">
+		<Navbar current={current}/>
+	</div>
 </header>
 
 <style>
@@ -24,3 +40,33 @@ const {subtitle, current} = Astro.props;
 		font-family: dotgothic16;
 	}
 </style>
+
+
+<script>
+
+	// toggle nav on click
+	const navtoggle = document.getElementById('navtoggle');
+	const nav = document.getElementById('nav');
+	if (navtoggle) {
+		navtoggle.addEventListener('click', () => {
+			if (nav) {
+				nav.classList.toggle('hidden');
+			}
+		});
+	}
+
+	// if window is resized to larger than sm, show nav regardless of toggle
+	window.addEventListener('resize', () => {
+		if (window.innerWidth > 640) {
+			nav.classList.remove('hidden');
+		}
+		// if window is resized to smaller than sm, hide nav if it's not already hidden
+		if (window.innerWidth < 640) {
+			if (!nav.classList.contains('hidden')) {
+				nav.classList.add('hidden');
+			}
+		}
+
+	});
+
+</script>

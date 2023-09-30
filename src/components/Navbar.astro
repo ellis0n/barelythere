@@ -36,7 +36,7 @@ const checkUrl = (url: string, href: string) => {
     return '';
 };
 ---
-<div class="navbar mt-24 text-black bg-white rounded-md fixed right-2 top-22 sm:static sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-xl lg:text-2xl ">
+<div class="navbar mt-24 text-black bg-white rounded-md drop-shadow-md fixed right-2 top-22 sm:active sm:static sm:flex sm:flex-row sm:justify-center sm:text-xl sm:mt-24 md:text-xl lg:text-2xl">
     <nav class="navbar-inner sm:pb-4 sm:bg-[#fff]">
         <ul class="grid justify-items-end sm:flex sm:flex-row sm:justify-center ml-4 ">
             {links.map((link, index) => (
@@ -69,3 +69,20 @@ const checkUrl = (url: string, href: string) => {
         color: #fff;
     }
 </style>
+
+<script>
+    // listen for clicks on menu item and assign active class based on which menu item matches the params
+
+    const navItems = document.querySelectorAll('.nav-item');
+    const currentUrl = window.location.pathname;
+
+    navItems.forEach((item) => {
+        item.addEventListener('click', () => {
+            navItems.forEach((item) => {
+                item.classList.remove('active');
+            });
+            item.classList.add('active');
+        });
+    });
+
+</script>
