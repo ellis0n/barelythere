@@ -24,7 +24,7 @@ const post = Astro.props.post.frontmatter;
 ---
 
 
-  <Layout title={post.title} current="/blogs">
+  <Layout title={post.title} current="/blogs" layout="content">
     <BlogHeader
       post={Astro.props.post.frontmatter}
     />

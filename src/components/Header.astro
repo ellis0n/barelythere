@@ -1,20 +1,22 @@
 ---
-
-import Navbar from './Navbar.astro';
+// import Navbar from './Navbar.astro';
+import Navbar from '../components/Navbar.jsx';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	subtitle: string;
-
+	current: string;
 } 
 
-
-const {subtitle} = Astro.props;
-
-
+const {subtitle, current} = Astro.props;
 ---
 
-<header class="banner flex p-2 mb-4 justify-center pointer-events-none">
-	<h1 class="text-7xl sm:text-7xl md:text-8xl ">barely there</h1>
+<header class="banner flex p-2 mb-4 justify-left sm:justify-center">
+	<h1 class="text-6xl mr-24 sm:mr-0 sm:text-7wxl md:text-8xl pointer-events-none">barely there</h1>
+
+		
+	</div>
+	<Navbar current={current}/>
 </header>
 
 <style>

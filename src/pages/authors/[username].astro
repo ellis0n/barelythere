@@ -16,9 +16,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
         posts:[],
     }))
 
-    const getPostsByAuthor = (author, posts) => {
-        const authorPosts = []
-        posts.forEach((post) => {
+    const getPostsByAuthor = (author: { author: any; posts?: never[]; }, posts: any[]) => {
+        const authorPosts: any[] = []
+        posts.forEach((post: { username: any; }) => {
             // console.log(post.username)
             // console.log(author.author.username)
             if (post.username === author.author.username) {
@@ -42,36 +42,51 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const author = Astro.props.author;
 const posts = Astro.props.posts;
-console.log(posts)
+
+interface Post {
+    title: string;
+    description: string;
+    date: string;
+    slug: string;
+    username: string;
+}
+
 ---
 <Layout
-    title=`barely there - ${author.default.username}`
-current="/blogs"
+    title=`${author.default.username}`
+    current="/blogs" 
+    layout="content"
 >
 
+<div>
 
     <h1>
         {author.username}
     </h1>
-
-    <p>
-        {author.bio}
-    </p>
-
+    
     <div class="mt-5">
         <ul>
-            {posts.map((post) => 
+            {posts.map((post: Post) => 
                 (
-                    <a href={`/blogs/${post.slug}`}>
-                        <li>
-                            {post.title}
-                        </li>
-                    </a>
+                    <div class="w-full">
+                        <div class=" justify-between sm:flex bg-black text-white mb-2 w-100">
+                            <a href={`/blogs/${post.slug}`}>
+                                <li>
+                                    {post.title}
+                                </li>
+                            </a>
+                            <button
+                            class="bg-black text-white hover:bg-white hover:text-black border border-white hover:border-black"
+                            >✓</button>
+                        </div>
+                        <div class="hidden">
+                            {post.description}
+                            {post.date}
+                        </div>
+                    </div>
                 )
             )}
         </ul>
     </div>
-
-
-
+</div>
 </Layout>

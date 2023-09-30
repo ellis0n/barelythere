@@ -17,9 +17,10 @@ const authors = defineCollection({
 		firstname: z.string(),
 		lastname: z.string(),
 		email: z.string(),
-		github: z.string().url(),
+		github: z.string().url().optional(),
 		twitter: z.string().url(),
 		instagram: z.string().url(),
+		avatar: z.string(),
 	}),
 });
 

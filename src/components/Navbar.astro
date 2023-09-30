@@ -3,6 +3,7 @@ interface Props {
 	current: string;
 }
 
+
 const {current} = Astro.props;
 
 const links = [
@@ -35,7 +36,7 @@ const checkUrl = (url: string, href: string) => {
     return '';
 };
 ---
-<div class="navbar text-black bg-white rounded-md fixed right-2 top-22 sm:static sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-xl lg:text-2xl ">
+<div class="navbar mt-24 text-black bg-white rounded-md fixed right-2 top-22 sm:static sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-xl lg:text-2xl ">
     <nav class="navbar-inner sm:pb-4 sm:bg-[#fff]">
         <ul class="grid justify-items-end sm:flex sm:flex-row sm:justify-center ml-4 ">
             {links.map((link, index) => (
@@ -52,7 +53,6 @@ const checkUrl = (url: string, href: string) => {
 </div>
 
 <style>
-
     .navbar {
         z-index: 1;
         font-family: dotgothic16;
@@ -62,13 +62,10 @@ const checkUrl = (url: string, href: string) => {
     .navbar-inner{
     }
 
-
-
     .nav-item:hover, .active {
         box-shadow: inset px 0px 0px 2rem rgba(255, 255, 255, 0.219);
         transition: box-shadow 0.1s;
         background: black;
         color: #fff;
     }
-
 </style>

@@ -1,18 +1,24 @@
 --- 
 import Head from '../components/Head.astro';
-import { ViewTransitions } from 'astro:transitions';
 import '@fontsource/dotgothic16';
 import ContentLayout from '../layouts/ContentLayout.astro';
 import Header from '../components/Header.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import fs from 'fs';
 
 interface Props {
 	title: string;
 	current: string;
+	layout: string;
 }
 
-const { title, current } = Astro.props;
+const { title, current, layout } = Astro.props;
+
+// Dynamically import the layout based on the layout prop
+const layoutName = layout.charAt(0).toUpperCase() + layout.slice(1).toLowerCase();
+const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
+
 
 ---
 
@@ -20,11 +26,10 @@ const { title, current } = Astro.props;
 <html lang="en">
 	<Head title={ title } />
 	<body>
-		<Header subtitle={title}/>
-		<Navbar current={current} />
-			<ContentLayout title={title}>
-				<slot />
-			</ContentLayout>
+		<Header subtitle={title} current={current}/>
+		<Wrapper.default>
+			<slot />
+		</Wrapper.default>
 		<Footer/>
 	</body>
 </html>
@@ -32,10 +37,10 @@ const { title, current } = Astro.props;
 
 <style is:global>
 	html {
-		background-color: #f2ebebff
-;
+		background-color: #f2ebebff;
+		
 	}
-	main {
+	body {
 		font-family: dotgothic16;
 	}
 </style>
