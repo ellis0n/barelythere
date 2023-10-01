@@ -1,6 +1,8 @@
 ---
-import { getDataEntryById } from 'astro:content';
-import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+
+
 
 interface Props {
     post:{
@@ -15,27 +17,28 @@ interface Props {
         content: string;
     }
 }
-
 const { title, username, date, relatedPosts, description } = Astro.props.post
 
----
+const { data: { avatar } } = await getEntry('authors', username);
 
-<div>
-    <div class="bg-black text-white mr-2 sm:mr-0">
-        <div class=>
-            <h1 class="text-4xl">
-                {title}
-            </h1>
-            
-            <h2 class="text-1xl">
+
+---
+<div class="bg-gray-100 drop-shadow-md grid sm:flex sm:justify-between px-2 ">
+    <div class=>
+        <h1 class="text-xl">
+            {title}
+        </h1>
+        <div class="flex flex-col mb-2">
+            <span>
                 <a href=`../authors/${username}`>
                     {username}
                 </a>
-            </h2>
+            </span>
+            <Image src={avatar} alt="Avatar" width="120" height="120" />
         </div>
     </div>
 
-    <div>
+    <div class="flex flex-col-reverse ml-auto mb-2">
         <p>
             {description}
         </p>
@@ -45,31 +48,24 @@ const { title, username, date, relatedPosts, description } = Astro.props.post
             }
         </p>
 
-
         
-        <p>
-            related: 
-            {
-                console.log(relatedPosts)
-            }
-        </p>
-    </div>
-    <hr/>
-    <div class="content">
-        <slot/> 
-    </div>
+        {relatedPosts.length > 0 ?
+            <p> related: 
+                {relatedPosts.map((post) => { 
+                    return (
+                        <a href={`../blogs/${post}`}>
+                            {title}
+                            {post !== relatedPosts[relatedPosts.length - 1] ? 
+                                (
+                                    <span>, </span>
+                                ) : (
+                                    <span>.</span>
+                                )}
+                        </a>
+                )})
+                }
+            </p>
+        : null
+        }
+        
 </div>
-
-
-<style>
-
-    a {
-        box-shadow: inset 0 -2px 0 0 #000;
-    }
-    
-    a:hover{
-        color: white;
-        background-color: #000;
-    }
-
-</style>

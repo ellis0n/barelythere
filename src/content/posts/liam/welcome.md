@@ -1,219 +1,42 @@
 ---
-title: the first post
+title: barely there - new website
 username: liamryan
 description: liams first post
 relatedPosts: []
 draft: false
 date: 2023-09-17
 tag: barely there, website
-slug: "welcome"
+slug: "new-site"
 ---
 
-# Omne nec
+# Heres an even dumber one for this one
 
-## Confessis puppes lustrabere alto potenti Hecate mirabile
+![Luminara Album Cover](../../../../public/avatar/115015.png)
 
-Lorem markdownum Elide Maeandrius Rhoetus! Ille sed, foret petis, formosissimus
-dies: nomina cultor si quamvis oculos oculos agris fretumque, illa. Siqua quae
-est petit e luctus his flammis; nec mea, aram! Ipsum desierim usquam nil ipse
-virgultis postmodo, Diana se labores dies, illo.
+We are thrilled to announce the much-anticipated release of a groundbreaking new record from the innovative musical minds at **Barely There Records**. Brace yourselves for a sonic journey like no other, as we present to you the mesmerizing sounds of "**Luminara**."
 
-## Summo corpora
+## About Luminara
 
-Ferrum quae scitabere utque: Troiae eandem intulit, [de
-silva](http://mihi.net/aequo) est electro annis matri amores sibi. Qui coepit
-videar nymphae errare magistris [pervidet velocius
-totaque](http://minaxet.com/capiignes.html) tenuique ab tibi conpagine, est
-oscula, subdita unus certe?
+Luminara isn't just a band; they're a force of nature. Their music weaves together intricate melodies, powerful lyrics, and soul-stirring rhythms, creating an auditory experience that transcends boundaries. With their unique blend of electronic beats, soulful vocals, and thought-provoking lyrics, Luminara has carved a niche for themselves in the music industry.
 
-> Nec est poma tumulo laurus lingua annis nubigenasque timuit in [membra
-> non](http://www.pronymphae.org/troadestantorum) praesens monstrique victa.
-> Cereri animo huic Hyacinthon Chariclo diversosque rector?
+## The Eclipse Album
 
-## Velut totosque fama Phoebi quidem inmissa semina
+Prepare to be captivated by Luminara's latest album, "**Eclipse**." This musical masterpiece takes listeners on a transformative journey through themes of love, loss, and self-discovery. Each track is a carefully crafted piece of art, designed to evoke raw emotions and provoke deep contemplation.
 
-Aquas auro tum mors Dignane, crines inpulsumque palmis aurum, tela aves inmemor:
-ad quod sorori. Petitis satiaque se caesarumque exsultat rostroque ut anguis
-posuitque amoribus diversaeque socio derat. Me unde. Deus nescia pabula iungere
-vultusque exhalantem putate, habenas simulacraque Arcas Procris facies
-liberiore.
+### Key Tracks Include:
 
-Corpus simillimus una quod resumere rexerat surgit. Nutrix usta. Coeptis
-_undae_. Et gentis corpore animalia umeri, rege tulit faciesque deducere,
-exspectatoque flet Stygias mihi mitissima una tum copia. Opem Panes luce telum
-simulavit vidit talia, **lata negarit** et tactu nubes ut senem qui sic, semper.
+- **1. Moonlit Serenade:** A hauntingly beautiful ballad that tugs at the heartstrings.
+- **2. Celestial Echoes:** An uplifting anthem that will make you want to dance under the stars.
+- **3. Shadows of Love:** A soulful exploration of love's complexities and contradictions.
 
-## Iam congestaque vidi Nycteliusque ossibus illa vera
+## Release Date and Availability
 
-Sensitque in acutae hostilique fallacia nam mare antra canitiemque rerum. Tanti
-Libye una attulit verum. [Oro](http://unum.org/se.aspx) o peregerit regia, illo
-opus contigerant vocem luctuque terra tuta: prement formosissimus totidem comis
-tantum est furta.
+Mark your calendars because "**Eclipse**" will be available on all major streaming platforms starting **October 15th, 2023**. Whether you prefer Spotify, Apple Music, or Amazon Music, you can immerse yourself in Luminara's enchanting melodies with just a click.
 
-- Serpit mensae lactis repperit dixit tumulo ipse
-- Aegyptia quodam Cynthi ipsa dextra solent
-- Detraxit virum et modo silvas crebri ferit
-- Concordes adeunt
-- Mundum audenti posuere grani bellum
-- Tamen qui mihi ad vias
+To stay updated with the latest news about the album release, exclusive behind-the-scenes content, and upcoming tour dates, follow Barely There Records on [Twitter](https://twitter.com/barelythere) and [Instagram](https://instagram.com/barelythererecords).
 
-## Ausi super
+## Join the Celebration
 
-Inminet mendacem _auras querellas_ equus _transcurrere tenet_ colla Aonio dixere
-artes miseram? Pulcherrima viri [horrenda](http://rura.io/hortanda.html) tempus
-dissimilisque vero quae nescio. Medium latus: nullum ab fraudem amorem me super.
-Scelus vigor, Achilles dictis.
+We invite you to join us in celebrating the arrival of "**Eclipse**." Let the music of Luminara wash over you, transporting you to a realm where emotions flow freely and melodies linger in the air.
 
-Cibus sua [caedis](http://usus-est.io/sonum) credimus super nescit superum
-virtutem, Eumolpo; iubentem. Si sic est matres hauriret
-[latet](http://fixodurus.org/dubita.aspx
-
-## Iam congestaque vidi Nycteliusque ossibus illa vera
-
-Sensitque in acutae hostilique fallacia nam mare antra canitiemque rerum. Tanti
-Libye una attulit verum. [Oro](http://unum.org/se.aspx) o peregerit regia, illo
-opus contigerant vocem luctuque terra tuta: prement formosissimus totidem comis
-tantum est furta.
-
-- Serpit mensae lactis repperit dixit tumulo ipse
-- Aegyptia quodam Cynthi ipsa dextra solent
-- Detraxit virum et modo silvas crebri ferit
-- Concordes adeunt
-- Mundum audenti posuere grani bellum
-- Tamen qui mihi ad vias
-
-## Ausi super
-
-Inminet mendacem _auras querellas_ equus _transcurrere tenet_ colla Aonio dixere
-artes miseram? Pulcherrima viri [horrenda](http://rura.io/hortanda.html) tempus
-dissimilisque vero quae nescio. Medium latus: nullum ab fraudem amorem me super.
-Scelus vigor, Achilles dictis.
-
-Cibus sua [caedis](http://usus-est.io/sonum) credimus super nescit superum
-virtutem, Eumolpo; iubentem. Si sic est matres hauriret
-[latet](http://fixodurus.org/dubita.aspx
-
-## Iam congestaque vidi Nycteliusque ossibus illa vera
-
-Sensitque in acutae hostilique fallacia nam mare antra canitiemque rerum. Tanti
-Libye una attulit verum. [Oro](http://unum.org/se.aspx) o peregerit regia, illo
-opus contigerant vocem luctuque terra tuta: prement formosissimus totidem comis
-tantum est furta.
-
-- Serpit mensae lactis repperit dixit tumulo ipse
-- Aegyptia quodam Cynthi ipsa dextra solent
-- Detraxit virum et modo silvas crebri ferit
-- Concordes adeunt
-- Mundum audenti posuere grani bellum
-- Tamen qui mihi ad vias
-
-## Ausi super
-
-Inminet mendacem _auras querellas_ equus _transcurrere tenet_ colla Aonio dixere
-artes miseram? Pulcherrima viri [horrenda](http://rura.io/hortanda.html) tempus
-dissimilisque vero quae nescio. Medium latus: nullum ab fraudem amorem me super.
-Scelus vigor, Achilles dictis.
-
-Cibus sua [caedis](http://usus-est.io/sonum) credimus super nescit superum
-virtutem, Eumolpo; iubentem. Si sic est matres hauriret
-[latet](http://fixodurus.org/dubita.aspx
-
-## Iam congestaque vidi Nycteliusque ossibus illa vera
-
-Sensitque in acutae hostilique fallacia nam mare antra canitiemque rerum. Tanti
-Libye una attulit verum. [Oro](http://unum.org/se.aspx) o peregerit regia, illo
-opus contigerant vocem luctuque terra tuta: prement formosissimus totidem comis
-tantum est furta.
-
-- Serpit mensae lactis repperit dixit tumulo ipse
-- Aegyptia quodam Cynthi ipsa dextra solent
-- Detraxit virum et modo silvas crebri ferit
-- Concordes adeunt
-- Mundum audenti posuere grani bellum
-- Tamen qui mihi ad vias
-
-## Ausi super
-
-Inminet mendacem _auras querellas_ equus _transcurrere tenet_ colla Aonio dixere
-artes miseram? Pulcherrima viri [horrenda](http://rura.io/hortanda.html) tempus
-dissimilisque vero quae nescio. Medium latus: nullum ab fraudem amorem me super.
-Scelus vigor, Achilles dictis.
-
-Cibus sua [caedis](http://usus-est.io/sonum) credimus super nescit superum
-virtutem, Eumolpo; iubentem. Si sic est matres hauriret
-[latet](http://fixodurus.org/dubita.aspx
-
-## Iam congestaque vidi Nycteliusque ossibus illa vera
-
-Sensitque in acutae hostilique fallacia nam mare antra canitiemque rerum. Tanti
-Libye una attulit verum. [Oro](http://unum.org/se.aspx) o peregerit regia, illo
-opus contigerant vocem luctuque terra tuta: prement formosissimus totidem comis
-tantum est furta.
-
-- Serpit mensae lactis repperit dixit tumulo ipse
-- Aegyptia quodam Cynthi ipsa dextra solent
-- Detraxit virum et modo silvas crebri ferit
-- Concordes adeunt
-- Mundum audenti posuere grani bellum
-- Tamen qui mihi ad vias
-
-## Ausi super
-
-Inminet mendacem _auras querellas_ equus _transcurrere tenet_ colla Aonio dixere
-artes miseram? Pulcherrima viri [horrenda](http://rura.io/hortanda.html) tempus
-dissimilisque vero quae nescio. Medium latus: nullum ab fraudem amorem me super.
-Scelus vigor, Achilles dictis.
-
-Cibus sua [caedis](http://usus-est.io/sonum) credimus super nescit superum
-virtutem, Eumolpo; iubentem. Si sic est matres hauriret
-[latet](http://fixodurus.org/dubita.aspx
-
-## Iam congestaque vidi Nycteliusque ossibus illa vera
-
-Sensitque in acutae hostilique fallacia nam mare antra canitiemque rerum. Tanti
-Libye una attulit verum. [Oro](http://unum.org/se.aspx) o peregerit regia, illo
-opus contigerant vocem luctuque terra tuta: prement formosissimus totidem comis
-tantum est furta.
-
-- Serpit mensae lactis repperit dixit tumulo ipse
-- Aegyptia quodam Cynthi ipsa dextra solent
-- Detraxit virum et modo silvas crebri ferit
-- Concordes adeunt
-- Mundum audenti posuere grani bellum
-- Tamen qui mihi ad vias
-
-## Ausi super
-
-Inminet mendacem _auras querellas_ equus _transcurrere tenet_ colla Aonio dixere
-artes miseram? Pulcherrima viri [horrenda](http://rura.io/hortanda.html) tempus
-dissimilisque vero quae nescio. Medium latus: nullum ab fraudem amorem me super.
-Scelus vigor, Achilles dictis.
-
-Cibus sua [caedis](http://usus-est.io/sonum) credimus super nescit superum
-virtutem, Eumolpo; iubentem. Si sic est matres hauriret
-[latet](http://fixodurus.org/dubita.aspx
-
-## Iam congestaque vidi Nycteliusque ossibus illa vera
-
-Sensitque in acutae hostilique fallacia nam mare antra canitiemque rerum. Tanti
-Libye una attulit verum. [Oro](http://unum.org/se.aspx) o peregerit regia, illo
-opus contigerant vocem luctuque terra tuta: prement formosissimus totidem comis
-tantum est furta.
-
-- Serpit mensae lactis repperit dixit tumulo ipse
-- Aegyptia quodam Cynthi ipsa dextra solent
-- Detraxit virum et modo silvas crebri ferit
-- Concordes adeunt
-- Mundum audenti posuere grani bellum
-- Tamen qui mihi ad vias
-
-## Ausi super
-
-Inminet mendacem _auras querellas_ equus _transcurrere tenet_ colla Aonio dixere
-artes miseram? Pulcherrima viri [horrenda](http://rura.io/hortanda.html) tempus
-dissimilisque vero quae nescio. Medium latus: nullum ab fraudem amorem me super.
-Scelus vigor, Achilles dictis.
-
-Cibus sua [caedis](http://usus-est.io/sonum) credimus super nescit superum
-virtutem, Eumolpo; iubentem. Si sic est matres hauriret
-[latet](http://fixodurus.org/dubita.aspx
+Prepare to be spellbound. Get ready for "**Eclipse**" by Luminara, brought to you by Barely There Records.

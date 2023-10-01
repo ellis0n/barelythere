@@ -1,33 +1,35 @@
 --- 
-import Head from '../components/Head.astro';
+// Fonts
 import '@fontsource/dotgothic16';
-import ContentLayout from '../layouts/ContentLayout.astro';
-import Header from '../components/Header.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import fs from 'fs';
 
+// Local imports
+import Head from '@components/Head.astro';
+import Header from '@components/Header.astro';
+import Navbar from '@components/Navbar.astro';
+import Footer from '@components/Footer.astro';
+
+// Types
 interface Props {
 	title: string;
 	current: string;
 	layout: string;
+	meta?: object
 }
 
-const { title, current, layout } = Astro.props;
+const { title, current, layout, meta } = Astro.props;
 
-// Dynamically import the layout based on the layout prop
 const layoutName = layout.charAt(0).toUpperCase() + layout.slice(1).toLowerCase();
 const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
-
 
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<Head title={ title } />
+	<Head title={ title }
+	/>
 	<body>
 		<Header subtitle={title} current={current}/>
-		<Wrapper.default>
+		<Wrapper.default meta={meta ? meta : null}>
 			<slot />
 		</Wrapper.default>
 		<Footer/>
