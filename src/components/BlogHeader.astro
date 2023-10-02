@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
+import BackButton from '@components/BackButton.astro';
+
+import { navigate } from 'astro:transitions/client'
 
 
 
@@ -19,10 +22,12 @@ interface Props {
 }
 const { title, username, date, relatedPosts, description } = Astro.props.post
 
-const { data: { avatar } } = await getEntry('authors', username);
+const avatar = await getEntry('authors', username).then((data) => data?.data?.avatar)
+
 
 
 ---
+<BackButton/>
 <div class="bg-gray-100 drop-shadow-md grid sm:flex sm:justify-between px-2 ">
     <div class=>
         <h1 class="text-xl">
@@ -37,17 +42,17 @@ const { data: { avatar } } = await getEntry('authors', username);
             <Image src={avatar} alt="Avatar" width="120" height="120" />
         </div>
     </div>
-
-    <div class="flex flex-col-reverse ml-auto mb-2">
+    
+    <div class="flex flex-col justify-end ml-auto mb-2 text-xs">
         <p>
             {description}
         </p>
         <p>
             {
-            date.split('T')[0]
+                date.split('T')[0]
             }
         </p>
-
+        
         
         {relatedPosts.length > 0 ?
             <p> related: 
@@ -61,11 +66,12 @@ const { data: { avatar } } = await getEntry('authors', username);
                                 ) : (
                                     <span>.</span>
                                 )}
-                        </a>
+                                </a>
                 )})
                 }
-            </p>
+                </p>
         : null
-        }
+    }
         
-</div>
+    </div>
+    

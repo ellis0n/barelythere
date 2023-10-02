@@ -1,12 +1,12 @@
 ---
 title: four post
+slug: "conditioner-cow"
 username: glenmay
 description: this is my fourth post
 relatedPosts: [new-site]
 draft: false
 date: 2023-09-17
 tags: website, conditioner
-slug: "conditioner-cow"
 ---
 
 # Revolution in the Basement: Unleashing Punk Energy in a Small Show

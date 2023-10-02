@@ -1,12 +1,12 @@
 ---
-title: second post
+title: barely there
+slug: barely-there
 username: glenmay
-description: this is my second post
+description: wow~
 relatedPosts: [the-first-post]
 draft: false
 date: 2023-09-17
 tags: website, conditioner
-slug: barely-there
 ---
 
 this is the second blog post. it has two tags.

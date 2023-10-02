@@ -19,8 +19,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const getPostsByAuthor = (author: { author: any; posts?: never[]; }, posts: any[]) => {
         const authorPosts: any[] = []
         posts.forEach((post: { username: any; }) => {
-            // console.log(post.username)
-            // console.log(author.author.username)
             if (post.username === author.author.username) {
                 authorPosts.push(post)
             }

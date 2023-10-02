@@ -1,17 +1,15 @@
 ---
-title: this is the first post
-username: glenmay
-description: im writing a post
-relatedPosts: [conditioner-cow, barely-there]
+title: new website
+slug: "new-site"
+username: liamryan
+description: liams first post
+relatedPosts: []
 draft: false
 date: 2023-09-17
 tag: barely there, website
-slug: "the-first-post"
 ---
 
-# Hi, this is my first blog post. I'm Glen.
-
-![Luminara Album Cover](../../../../public/avatar/115015.png)
+# Heres an even dumber one for this one
 
 We are thrilled to announce the much-anticipated release of a groundbreaking new record from the innovative musical minds at **Barely There Records**. Brace yourselves for a sonic journey like no other, as we present to you the mesmerizing sounds of "**Luminara**."
 

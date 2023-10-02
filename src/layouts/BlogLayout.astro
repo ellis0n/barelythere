@@ -7,10 +7,18 @@ interface Props {
 	blogTitle: string;
 	current: string;
 	layout: string;
-    meta?: object;
+    meta: {
+		title: string;
+		description: string;
+		date: string;
+		readingTime: string;
+		tags: string[];
+		image: string;
+	}
 }
 
 const { blogTitle, layout, meta } = Astro.props;
+
 
 ---
 

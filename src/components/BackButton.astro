@@ -1,0 +1,16 @@
+---
+//this is busted
+---
+<div id="back">
+    <button>back</button>
+</div>
+
+<script>
+    import { navigate } from 'astro:transitions/client';
+    document.addEventListener('DOMContentLoaded', () => {
+        const back = document.getElementById('back');
+        back.addEventListener('click', () => {
+            history.back();
+        });
+    });
+</script>

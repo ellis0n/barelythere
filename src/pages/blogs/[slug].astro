@@ -1,7 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Layout from "@layouts/Layout.astro";
-import BlogHeader from "@components/BlogHeader.astro";
 
 interface Props {
   post: any;
@@ -20,7 +19,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 
 const { Content } = Astro.props.post
-const rawContent = Astro.props.post.rawContent;
 
 const frontmatter = Astro.props.post.frontmatter;
 ---
