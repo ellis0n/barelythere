@@ -1,6 +1,4 @@
 ---
-import type { GetStaticPaths } from "astro";
-
 import Layout from '../layouts/Layout.astro'
 import ContentLayout from '../layouts/ContentLayout.astro'
 
@@ -14,8 +12,9 @@ const authors: CollectionEntry<'authors'>[] = await getCollection("authors");
 <Layout title="authors" current="/blogs" layout="content">
     <ContentLayout>
 
-        <h1 class="text-5xl mb-20">authors</h1>
-        <div>
+        <h2 slot="subtitle">authors</h2>
+
+        <div slot="content">
             {
                 authors.map((author) => (
                     <a href={`/authors/${author.data.username}`}>

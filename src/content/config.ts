@@ -25,4 +25,24 @@ const authors = defineCollection({
 	}),
 });
 
-export const collections = { posts, authors };
+const releases = defineCollection({
+	type: "content",
+	schema: z.object({
+		artist: z.string(),
+		albumTitle: z.string(),
+		artwork: z.string(),
+		release: z.string(),
+		id: z.string(),
+		description: z.string(),
+		tags: z.string(),
+		video: z.string().url().optional(),
+		draft: z.boolean().optional(),
+		bandcamp: z.string().url().optional(),
+		spotify: z.string().url().optional(),
+		appleMusic: z.string().url().optional(),
+		soundcloud: z.string().url().optional(),
+		youtube: z.string().url().optional(),
+	}),
+});
+
+export const collections = { posts, authors, releases };

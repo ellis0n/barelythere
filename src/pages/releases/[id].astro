@@ -1,0 +1,39 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+
+    const releasesGlob = await Astro.glob("../../content/releases/*.md");
+    const releases = releasesGlob.map((release)=>release.frontmatter);
+    console.log(releases)
+
+    // return releases.map((release) => ({
+    //     params: release.id,
+    //     props: {releases}
+    // }))
+    
+    return releases.
+    map((release) => ({
+        params: {id: release.id},
+        props: {release}
+    }))
+}
+
+const params = Astro.params;
+const release = Astro.props.release;
+console.log(release)
+
+---
+
+<Layout title="test" layout="content">
+    <div slot="subtitle" class="prose">
+        <h2 class="text-5xl mb-4">{release.artist}</h2>
+        <h3 class>{release.title}</h2>
+    </div>
+    <div slot="content">
+        <Image src={release.artwork} alt={release.title} width=600 height=600 class="right-20 " transition:persist/>
+        {release.description}
+    </div>
+
+</Layout

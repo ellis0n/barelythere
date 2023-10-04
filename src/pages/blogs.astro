@@ -15,10 +15,9 @@ const authors = authorsGlob.map((author) => ({
 ---
 
 <Layout title="blogs" current="/blogs" layout="content">
-    <div>
-        <h1>BLOGS</h1>
+        <h1 slot="subtitle">BLOGS</h1>
 
-        <div class="mt-4 mb-4">
+        <div class="mt-4 mb-4" slot="content">
             <h2>by author:</h2>
             {
                 authors.map(author => (
@@ -27,7 +26,6 @@ const authors = authorsGlob.map((author) => ({
                     </div>
                 ))
             }
-        </div>
 
     <!-- TODO: Temporary UI to access all posts -->
 	<div class="border-black border-2 ">

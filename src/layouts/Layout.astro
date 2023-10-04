@@ -13,7 +13,7 @@ interface Props {
 	title: string;
 	current: string;
 	layout: string;
-	meta: object
+	meta?: object
 }
 
 
@@ -31,7 +31,8 @@ const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
 	<body>
 		<Header subtitle={title} current={current}/>
 		<Wrapper.default meta={meta} >
-			<slot />
+			<slot name="subtitle"/>
+			<slot name="content"/>
 		</Wrapper.default>
 		<Footer/>
 	</body>

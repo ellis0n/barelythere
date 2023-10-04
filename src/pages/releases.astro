@@ -4,5 +4,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="releases" current="/releases" layout="content">
-	<AlbumCarousel />
+	<h1 slot="subtitle">Releases</h1>
+	<div slot="content">
+		<AlbumCarousel />
+	</div>
 </Layout>

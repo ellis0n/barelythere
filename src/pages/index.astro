@@ -3,11 +3,13 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="home" current="/" layout="content">
-		<h2>
+		<h2 slot="subtitle">
 			home
 		</h2>
-		<p>---</p>
-		<br/>
-		<h3>Conditioner - COW</h3>
-		<br/> <p>Conditioner Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis maiores dicta aliquam, animi corrupti assumenda eos facere beatae ipsum porro.</p>
+		<div slot="subtitle">
+			<p>---</p>
+			<br/>
+			<h3>Conditioner - COW</h3>
+			<br/> <p>Conditioner Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis maiores dicta aliquam, animi corrupti assumenda eos facere beatae ipsum porro.</p>
+		</div>
 </Layout>

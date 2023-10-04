@@ -25,5 +25,11 @@ const frontmatter = Astro.props.post.frontmatter;
 
 
   <Layout title={frontmatter.title} current="/blogs" layout="blog" meta={frontmatter}>
-      <Content/>
+      <div slot="title">
+        <h1>{frontmatter.title}</h1>
+        <p>{frontmatter.date}</p>
+      </div>
+      <div slot="content">
+        <Content/>
+      </div>
   </Layout>
