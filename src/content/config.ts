@@ -31,7 +31,7 @@ const releases = defineCollection({
 		artist: z.string(),
 		albumTitle: z.string(),
 		artwork: z.string(),
-		release: z.string(),
+		release: z.date(),
 		id: z.string(),
 		description: z.string(),
 		tags: z.string(),

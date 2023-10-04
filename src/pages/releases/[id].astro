@@ -26,13 +26,13 @@ console.log(release)
 
 ---
 
-<Layout title="test" layout="content">
-    <div slot="subtitle" class="prose">
+<Layout title="test" layout="content" >
+    <div slot="subtitle" class="prose" transition:slide>
         <h2 class="text-5xl mb-4">{release.artist}</h2>
-        <h3 class>{release.title}</h2>
+        <h3 class>{release.albumTitle}</h2>
     </div>
     <div slot="content">
-        <Image src={release.artwork} alt={release.title} width=600 height=600 class="right-20 " transition:persist/>
+        <Image src={release.artwork} alt={release.albumTitle} width=600 height=600 class="right-20 "/>
         {release.description}
     </div>
 
