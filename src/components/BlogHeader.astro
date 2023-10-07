@@ -20,6 +20,7 @@ interface Props {
         content: string;
     }
 }
+
 const { title, username, date, relatedPosts, description } = Astro.props.post
 
 const avatar = await getEntry('authors', username).then((data) => data?.data?.avatar)
