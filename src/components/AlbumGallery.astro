@@ -1,0 +1,21 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+
+const releases = await getCollection("releases");
+---
+
+<div class="pb-12 mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+    {releases.map((album) => (
+                    <div class="outline ">
+                    {console.log(album.slug)}
+                        <a href={`/releases/${album.slug}`}>
+                            <img
+                            transition:name={`${album.slug}-artwork`}
+                            src={album.data.artwork} alt={album.data.albumTitle} />
+                            <p>{album.data.albumTitle}</p>
+                        </a>
+                    </div>
+                )
+    )}
+</div>

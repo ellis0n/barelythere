@@ -6,7 +6,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     const releasesGlob = await Astro.glob("../../content/releases/*.md");
     const releases = releasesGlob.map((release)=>release.frontmatter);
-    console.log(releases)
 
     // return releases.map((release) => ({
     //     params: release.id,
@@ -22,17 +21,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const params = Astro.params;
 const release = Astro.props.release;
-console.log(release)
+console.log(release.id)
+
 
 ---
 
 <Layout title="test" layout="content" >
-    <div slot="subtitle" class="prose" transition:slide>
+    <div slot="subtitle" class="prose">
         <h2 class="text-5xl mb-4">{release.artist}</h2>
         <h3 class>{release.albumTitle}</h2>
     </div>
     <div slot="content">
-        <Image src={release.artwork} alt={release.albumTitle} width=600 height=600 class="right-20 "/>
+        <Image src={release.artwork} alt={release.albumTitle} width=600 height=600 class="right-20 " transition:name=`${release.id}-artwork`/>
         {release.description}
     </div>
 
