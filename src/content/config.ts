@@ -33,7 +33,6 @@ const releases = defineCollection({
 		artwork: z.string(),
 		release: z.date(),
 		id: z.string(),
-		description: z.string(),
 		tags: z.string(),
 		video: z.string().url().optional(),
 		draft: z.boolean().optional(),
