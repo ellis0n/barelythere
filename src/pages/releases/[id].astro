@@ -2,21 +2,25 @@
 import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-    const releases = await Astro.glob("../../content/releases/**/*.md");
+    // const releases = await Astro.glob("../../content/releases/**/*.md");
+
+    const releases = await getCollection("releases")
 
     return releases.
     map((release) => ({
-        params: {id: release.frontmatter.id},
+        params: {id: release.id.match(/^[^\/]+/)[0]},
         props: {release}
     }))
 }
 
 
-const release = Astro.props.release.frontmatter;
-const { Content } = Astro.props.release
+const release = Astro.props
+console.log(release);
+console.log(release.artwork)
 
 ---
 
@@ -26,13 +30,13 @@ const { Content } = Astro.props.release
         <h3 class="text-5xl mb-4">{release.artist}</h3>
     </div>
     <div slot="content" >
-        <Image src={release.artwork} alt={release.albumTitle} width=600 height=600 class="right-20" 
+        <Image src={release.artwork} alt={""} width=600 height=600 class="right-20" 
         
         transition:name=`${release.id}-artwork`
         />
-        <div class="prose">
-            <Content />
-        </div>
+        <!-- <div class="prose"> -->
+            <!-- <Content /> -->
+        <!-- </div> -->
     </div>
 
 </Layout

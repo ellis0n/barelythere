@@ -14,12 +14,11 @@ const releases = await getCollection("releases");
                             <Image 
                                 transition:name={`${album.data.id}-artwork`}
                                 transition:animate="fade"
-                                src={`./src/content/releases/${album.data.id}/${album.data.id}`}
+                                src={album.data.artwork}
                                 alt={album.data.albumTitle} 
                                 class=""
                                 height="300"
                                 width="300"
-                                loading="lazy"
                             />
                             <div>
                                 <h2>{
