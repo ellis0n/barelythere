@@ -1,27 +1,32 @@
 ---
-import type { GetStaticPaths } from "astro";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-
 const releases = await getCollection("releases");
 
-// reverse the order of the releases
+
+
 
 ---
 
-<div class="pb-12 mt-20 grid grid-cols-1 gap-14 sm:grid-cols-2 sm:gap-2 md:gap-4 xl:grid-cols-3 xl:gap-5">
+<div class="pb-12 mt-20 grid grid-cols-1 gap-14  sm:grid-cols-3 sm:gap-2 md:gap-4 xl:grid-cols-3 xl:gap-5">
     {releases.reverse().map((album) => (
                     <div class="shadow-md ">
                         <a href={`/releases/${album.data.id}`}>
-                            <img
-                            transition:name={`${album.data.id}-artwork`}
-                            src={album.data.artwork} alt={album.data.albumTitle} />
-
-                            <div class=" hidden hover:block">
-                                <p>{
-                                    album.data.albumTitle
-                                } by {
-                                    album.data.artist
-                                }</p>
+                            <Image 
+                                transition:name={`${album.data.id}-artwork`}
+                                src={album.data.artwork}
+                                alt={album.data.albumTitle} 
+                                class=""
+                                height="300"
+                                width="300"
+                            />
+                            <div class="  hover:block">
+                                <h2>{
+                                    album.data.albumTitle}
+                                </h2>
+                                <h3>
+                                    {album.data.artist
+                                }</h3>
                             </div>
                         </a>
                     </div>

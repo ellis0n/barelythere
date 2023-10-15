@@ -18,18 +18,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const release = Astro.props.release.frontmatter;
 const { Content } = Astro.props.release
 
-
 ---
 
 <Layout title=`${release.albumTitle} by ${release.artist}` layout="content" >
     <div slot="subtitle" class="prose">
-        <h2 class="text-5xl mb-4">{release.artist}</h2>
-        <h3>{release.albumTitle}</h2>
+        <h2>{release.albumTitle}</h2>
+        <h3 class="text-5xl mb-4">{release.artist}</h3>
     </div>
     <div slot="content">
-        <Image src={release.artwork} alt={release.albumTitle} width=600 height=600 class="right-20 " transition:name=`${release.id}-artwork`/>
+        <Image src={release.artwork} alt={release.albumTitle} width=600 height=600 class="right-20" transition:name=`${release.id}-artwork`/>
         <div class="prose">
-            <Content/>
+            <Content />
         </div>
     </div>
 

@@ -14,6 +14,9 @@ dependencies:
   '@fontsource/dotgothic16':
     specifier: ^5.0.10
     version: 5.0.10
+  '@fontsource/young-serif':
+    specifier: ^5.0.11
+    version: 5.0.11
   '@types/react':
     specifier: ^18.0.21
     version: 18.2.21
@@ -794,6 +797,10 @@ packages:
 
   /@fontsource/dotgothic16@5.0.10:
     resolution: {integrity: sha512-EDIpwvWp/OFhmm8QNDU56Q2IoTQdB7SG56eYiUXBQ5v0MC/kJsQjW+cbxvsHug+JWZIUD3hq0Z8vGeFcqu0jdA==}
+    dev: false
+
+  /@fontsource/young-serif@5.0.11:
+    resolution: {integrity: sha512-AzNgD0gVNmogYDl23AHeFeIQlBbJVWAuElmZvMnxEeqAcrVXtP2UEtRv7wWM+HM+vkcYIdbT6TmfmHJ1Rm2gsw==}
     dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
