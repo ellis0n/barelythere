@@ -14,6 +14,9 @@ dependencies:
   '@fontsource/dotgothic16':
     specifier: ^5.0.10
     version: 5.0.10
+  '@fontsource/vt323':
+    specifier: ^5.0.8
+    version: 5.0.8
   '@fontsource/young-serif':
     specifier: ^5.0.11
     version: 5.0.11
@@ -797,6 +800,10 @@ packages:
 
   /@fontsource/dotgothic16@5.0.10:
     resolution: {integrity: sha512-EDIpwvWp/OFhmm8QNDU56Q2IoTQdB7SG56eYiUXBQ5v0MC/kJsQjW+cbxvsHug+JWZIUD3hq0Z8vGeFcqu0jdA==}
+    dev: false
+
+  /@fontsource/vt323@5.0.8:
+    resolution: {integrity: sha512-WU1qtqHObNqH2Tq6NmzwpO2Gyu3E4nqEOdrSMs0j9mwtRRSHf9FeM+iYVdbA1rhJDDZSw0ZSZakGAZxOJNTTdw==}
     dev: false
 
   /@fontsource/young-serif@5.0.11:

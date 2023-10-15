@@ -2,6 +2,7 @@
 // Fonts
 import '@fontsource/dotgothic16';
 import '@fontsource/young-serif'
+import '@fontsource/vt323'
 
 // Local imports
 import Head from '@components/Head.astro';
@@ -30,6 +31,7 @@ const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
 	/>
 	<body>
 		<Header subtitle={title} current={current}/>
+		<div data-scroll-watcher="header" />
 		<Wrapper.default meta={meta} >
 			<slot name="subtitle"/>
 			<slot name="content"/>
@@ -42,10 +44,47 @@ const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
 <style is:global>
 	html {
 		background-color: #f2ebebff;
-		
 	}
-	body {
-		font-family: '', serif;
-}
 </style>
 
+<script>
+
+	const scrollObserver = ()=> {
+    // Select the body element
+    const body = document.querySelector("body");
+
+    // Create a new IntersectionObserver with a callback function
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            // Check the data attribute of the observed element
+            switch ((entry.target as HTMLElement).dataset.scrollWatcher) {
+                case "header":
+                    body.classList.toggle("scroll", !entry.isIntersecting);
+                    break;
+				// TODO: implement footer
+                case "footer":
+                    body.classList.toggle("credits-active", entry.isIntersecting);
+                    break;
+            }
+        });
+    }, {
+        // Set root margin for the IntersectionObserver
+        rootMargin: "150px 0px -45px 0px"
+    });
+
+
+    // Observe elements with data-scroll-watcher attribute set to "header" and "footer"
+    const header = document.querySelector('[data-scroll-watcher="header"]');
+    const footer = document.querySelector('[data-scroll-watcher="footer"]');
+    if (header) {
+        observer.observe(header);
+    }
+    if (footer) {
+        observer.observe(footer);
+    }
+}
+
+	window.addEventListener("load", () => {
+    scrollObserver();
+});
+</script> 

@@ -5,22 +5,23 @@ const releases = await getCollection("releases");
 
 
 
-
 ---
 
 <div class="pb-12 mt-20 grid grid-cols-1 gap-14  sm:grid-cols-3 sm:gap-2 md:gap-4 xl:grid-cols-3 xl:gap-5">
     {releases.reverse().map((album) => (
-                    <div class="shadow-md ">
+                    <div class="shadow-md" >
                         <a href={`/releases/${album.data.id}`}>
                             <Image 
                                 transition:name={`${album.data.id}-artwork`}
-                                src={album.data.artwork}
+                                transition:animate="fade"
+                                src={`./src/content/releases/${album.data.id}/${album.data.id}`}
                                 alt={album.data.albumTitle} 
                                 class=""
                                 height="300"
                                 width="300"
+                                loading="lazy"
                             />
-                            <div class="  hover:block">
+                            <div>
                                 <h2>{
                                     album.data.albumTitle}
                                 </h2>

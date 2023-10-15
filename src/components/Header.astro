@@ -1,13 +1,11 @@
 ---
 import Navbar from './Navbar.astro';
-import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
-	subtitle: string;
 	current: string;
 } 
 
-const {subtitle, current} = Astro.props;
+const { current} = Astro.props;
 ---
 
 <header class="banner flex p-2 mb-4 justify-left sm:justify-center sm:align-center sm:text-center sm:flex-wrap sm:flex-col" transition:persist>
@@ -15,8 +13,8 @@ const {subtitle, current} = Astro.props;
 
 		
 
-	<!-- TODO: Componentize this -->
-	<div id="navtoggle" class="z-10 cursor-pointer drop-shadow-md text-black rounded-md fixed bg-white right-2 mt-4 p-2 sm:hidden sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-xl lg:text-2xl opacity-100 hover:opacity-60 transition-all">
+	<!-- TODO: Componentize this
+	<div id="navtoggle" class="z-10 cursor-pointer drop-shadow-md text-black rounded-md fixed bg-white right-2 mt-4 p-2 hidden sm:flex sm:flex-row sm:justify-center sm:text-xl md:text-xl lg:text-2xl opacity-100 hover:opacity-60 transition-all">
 			<div
 				class="w-8 flex mx-auto justify-right sm:hidden "
 			>
@@ -30,17 +28,14 @@ const {subtitle, current} = Astro.props;
 					</svg>
 				</button>
 			</div>
-	</div>
+	</div> -->
 
-
-	<div id="nav">
-		<Navbar current={current}/>
-	</div>
+	<Navbar current={current}/>
 </header>
 
 <style>
 	header {
-		font-family: young-serif;
+		font-family: Young Serif;
 	}
 </style>
 
@@ -72,4 +67,4 @@ const {subtitle, current} = Astro.props;
 
 	});
 
-</script>
+</script>./Navbar.jsx
