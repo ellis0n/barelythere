@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
-import { GetStaticPaths } from "astro";
+import { type GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -9,18 +9,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // const releases = await Astro.glob("../../content/releases/**/*.md");
 
     const releases = await getCollection("releases")
-
-    return releases.
-    map((release) => ({
-        params: {id: release.id.match(/^[^\/]+/)[0]},
-        props: {release}
+    return releases.map((release) => ({
+        params: {
+            id: release.data.id
+        },
+        props: {
+            release
+        }
     }))
 }
 
 
-const release = Astro.props
-console.log(release);
-console.log(release.artwork)
+const release = Astro.props.release.data
+const { Content } = await Astro.props.release.render();
+
+console.log(release)
 
 ---
 
@@ -34,9 +37,9 @@ console.log(release.artwork)
         
         transition:name=`${release.id}-artwork`
         />
-        <!-- <div class="prose"> -->
-            <!-- <Content /> -->
-        <!-- </div> -->
+        <div class="prose"> 
+            <Content
+         </div> 
     </div>
 
 </Layout

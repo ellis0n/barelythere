@@ -2,23 +2,21 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const releases = await getCollection("releases");
-
-
-
 ---
 
-<div class="pb-12 mt-20 grid grid-cols-1 gap-14  sm:grid-cols-3 sm:gap-2 md:gap-4 xl:grid-cols-3 xl:gap-5">
+<div class="pb-12 mt-20 grid grid-cols-1 gap-16 sm:grid-cols-2 sm:grid-cols-2 sm:gap-12 md:gap-4 xl:grid-cols-3 xl:gap-5">
     {releases.reverse().map((album) => (
-                    <div class="shadow-md" >
+                    <div class="container" >
                         <a href={`/releases/${album.data.id}`}>
                             <Image 
                                 transition:name={`${album.data.id}-artwork`}
                                 transition:animate="fade"
                                 src={album.data.artwork}
                                 alt={album.data.albumTitle} 
-                                class=""
-                                height="300"
-                                width="300"
+                                class="shadow-md "
+                                // loading="lazy"
+                                height="600"
+                                width="600"
                             />
                             <div>
                                 <h2>{

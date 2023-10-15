@@ -20,19 +20,3 @@ const { title, viewTransition } = Astro.props;
     <ViewTransitions/>
     <title>Barely There | {title}</title>
 </head>
-
-<script>
-    // if user scroll position is greater than 0, add class to body 
-
-   window.addEventListener('scroll', function() {
-      let scrollY = window.scrollY;
-      const html = document.querySelector('html');
-      
-      if (scrollY > 0) {
-        html.classList.add('scroll');
-      } else {
-        html.classList.remove('scroll');
-      }
-    });
-</script>
-
