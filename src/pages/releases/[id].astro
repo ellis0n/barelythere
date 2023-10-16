@@ -1,36 +1,47 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
-import { GetStaticPaths } from "astro";
+import { type GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-
-    const releases = await Astro.glob("../../content/releases/**/*.md");
-
-    return releases.
-    map((release) => ({
-        params: {id: release.frontmatter.id},
-        props: {release}
+    const releases = await getCollection("releases")
+    return releases.map((release) => ({
+        params: {
+            id: release.data.id
+        },
+        props: {
+            release: release.data,
+            render: release.render()
+        }
     }))
 }
 
-
-const release = Astro.props.release.frontmatter;
-const { Content } = Astro.props.release
-
+const release = Astro.props.release
+const { Content } = await Astro.props.render
 
 ---
 
-<Layout title=`${release.albumTitle} by ${release.artist}` layout="content" >
-    <div slot="subtitle" class="prose">
-        <h2 class="text-5xl mb-4">{release.artist}</h2>
-        <h3>{release.albumTitle}</h2>
+<Layout title=`${release.albumTitle} by ${release.artist}` layout="content" current="/releases" >
+    <div slot="subtitle" >
+        <div class="container"
+        >
+        <h2>{release.artist}</h2>
+        <Image 
+            transition:name=`${release.id}`
+            src={release.artwork} 
+            alt={release.albumTitle} class="shadow-md" 
+            width="600" 
+            height="600" 
+            loading="lazy"
+            decoding="async" 
+            />
+        </div>
     </div>
     <div slot="content">
-        <Image src={release.artwork} alt={release.albumTitle} width=600 height=600 class="right-20 " transition:name=`${release.id}-artwork`/>
-        <div class="prose">
+        <div class="prose"> 
             <Content/>
-        </div>
+        </div> 
     </div>
 
 </Layout

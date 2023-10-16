@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -6,7 +7,9 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				display: "DotGothic16",
+				sans: ["VT323", ...defaultTheme.fontFamily.sans],
+
+				serif: ["Young Serif", ...defaultTheme.fontFamily.serif],
 			},
 		},
 	},

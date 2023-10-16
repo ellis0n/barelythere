@@ -1,11 +1,39 @@
 ---
 import AlbumGallery from '@components/AlbumGallery.astro';
 import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+const releases = await getCollection("releases");
 ---
 
 <Layout title="releases" current="/releases" layout="content">
 	<h1 slot="subtitle">Releases</h1>
 	<div slot="content">
-		<AlbumGallery />
+		<div class="pb-12 mt-20 grid grid-cols-1 gap-16 sm:grid-cols-2 sm:grid-cols-2 sm:gap-12 md:gap-4 xl:grid-cols-3 xl:gap-5">
+    {releases.reverse().map((album) => (
+        
+        <a href={`/releases/${album.data.id}`}>
+            <div class="container"  transition:name={`${album.data.id}`}>
+                    <h2>{
+                        album.data.albumTitle}
+                    </h2>
+                    <h3>
+                        {album.data.artist}
+                    </h3>
+                    <div>
+                        <Image 
+                        src={album.data.artwork}
+                        alt={album.data.albumTitle} 
+                        class="shadow-md" 
+                        width="600" height="600"
+                        decoding="async"
+                        loading="lazy"
+                        />
+                    </div>
+            </div>
+        </a>
+    ))}
+</div>
+		<!-- <AlbumGallery /> -->
 	</div>
 </Layout>

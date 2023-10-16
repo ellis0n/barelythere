@@ -9,7 +9,6 @@
 		"paths": {
 			"@components/*": ["src/components/*"],
 			"@content/*": ["src/content/*"],
-			"@images/*": ["src/content/images/*"],
 			"@layouts/*": ["src/layouts/*"]
 		}
 	}

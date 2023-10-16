@@ -24,7 +24,7 @@ const { blogTitle, layout, meta } = Astro.props;
 ---
 
 <main class="w-auto h-full sm:flex sm:mt-14 sm:mx-8 md:mx-32 lg:mx-44 xl:mx-56 xxl:mx-72 2xl:mx-96" transition:animate={fade({ duration: '0.6s' })}>
-	<div class="px-6 mb-20 bg-white rounded-lg shadow-md "> 
+	<div class="px-6 mb-20 bg-white rounded-lg shadow-md container "> 
             <BlogHeader post={meta}/>
             <BlogContent>
                 <slot />
