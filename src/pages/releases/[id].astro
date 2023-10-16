@@ -5,41 +5,43 @@ import { type GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-
-    // const releases = await Astro.glob("../../content/releases/**/*.md");
-
     const releases = await getCollection("releases")
     return releases.map((release) => ({
         params: {
             id: release.data.id
         },
         props: {
-            release
+            release: release.data,
+            render: release.render()
         }
     }))
 }
 
-
-const release = Astro.props.release.data
-const { Content } = await Astro.props.release.render();
-
-console.log(release)
+const release = Astro.props.release
+const { Content } = await Astro.props.render
 
 ---
 
 <Layout title=`${release.albumTitle} by ${release.artist}` layout="content" current="/releases" >
-    <div slot="subtitle" class="prose">
-        <h2>{release.albumTitle}</h2>
-        <h3 class="text-5xl mb-4">{release.artist}</h3>
+    <div slot="subtitle" >
+        <div class="container">
+            <h2>{release.albumTitle}</h2>
+            <h3>{release.artist}</h3>
+            <Image 
+                src={release.artwork} 
+                alt={release.albumTitle} class="shadow-md" 
+                width="600" 
+                height="600" 
+                loading="lazy"
+                decoding="async" 
+                transition:name=`${release.id}-artwork`
+                />
+        </div>
     </div>
-    <div slot="content" >
-        <Image src={release.artwork} alt={""} width=600 height=600 class="right-20" 
-        
-        transition:name=`${release.id}-artwork`
-        />
+    <div slot="content">
         <div class="prose"> 
-            <Content
-         </div> 
+            <Content/>
+        </div> 
     </div>
 
 </Layout

@@ -9,6 +9,8 @@ import Head from '@components/Head.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 
+import { ViewTransitions, fade} from 'astro:transitions';
+
 // Types
 interface Props {
 	title: string;
@@ -29,7 +31,7 @@ const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
 <html lang="en">
 	<Head title={ title }
 	/>
-	<body>
+	<body transition:animate={fade({ duration: '0.6s' })}>
 		<Header subtitle={title} current={current}/>
 		<div data-scroll-watcher="header" />
 		<Wrapper.default meta={meta} >

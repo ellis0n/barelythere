@@ -2,32 +2,31 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const releases = await getCollection("releases");
+
 ---
 
 <div class="pb-12 mt-20 grid grid-cols-1 gap-16 sm:grid-cols-2 sm:grid-cols-2 sm:gap-12 md:gap-4 xl:grid-cols-3 xl:gap-5">
     {releases.reverse().map((album) => (
-                    <div class="container" >
-                        <a href={`/releases/${album.data.id}`}>
-                            <Image 
-                                transition:name={`${album.data.id}-artwork`}
-                                transition:animate="fade"
-                                src={album.data.artwork}
-                                alt={album.data.albumTitle} 
-                                class="shadow-md "
-                                // loading="lazy"
-                                height="600"
-                                width="600"
-                            />
-                            <div>
-                                <h2>{
-                                    album.data.albumTitle}
-                                </h2>
-                                <h3>
-                                    {album.data.artist
-                                }</h3>
-                            </div>
-                        </a>
+        
+        <a href={`/releases/${album.data.id}`}>
+            <div class="container">
+                    <h2>{
+                        album.data.albumTitle}
+                    </h2>
+                    <h3>
+                        {album.data.artist}
+                    </h3>
+                    <div transition:name={`${album.data.id}-artwork`}>
+                        <Image 
+                        src={album.data.artwork}
+                        alt={album.data.albumTitle} 
+                        class="shadow-md" 
+                        width="600" height="600"
+                        decoding="async"
+                        loading="lazy"
+                        />
                     </div>
-                )
-    )}
+            </div>
+        </a>
+    ))}
 </div>
