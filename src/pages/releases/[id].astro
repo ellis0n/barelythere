@@ -35,6 +35,7 @@ const { Content } = await Astro.props.render
                 loading="lazy"
                 decoding="async" 
                 transition:name=`${release.id}-artwork`
+                transition:persist
                 />
         </div>
     </div>
