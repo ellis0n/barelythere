@@ -9,9 +9,11 @@ interface Props {
 const { current} = Astro.props;
 ---
 
-<header class="banner flex p-2 mb-4 justify-left sm:justify-center sm:align-center sm:text-center sm:flex-wrap sm:flex-col" >
-	<h1 class="text-6xl mr-24 sm:mr-0 sm:text-7wxl md:text-8xl pointer-events-none ">barely there</h1>
-	<Navbar current={current}/>
+<header class="banner flex p-2 mb-4 justify-left sm:justify-center sm:align-center sm:text-center sm:flex-wrap sm:flex-col">
+	<a href="/">
+		<h1 class="text-6xl mr-24 sm:mr-0 sm:text-7wxl md:text-8xl" >barely there</h1>
+		<Navbar current={current}/>
+	</a>
 </header>
 
 <style>
@@ -20,32 +22,3 @@ const { current} = Astro.props;
 	}
 </style>
 
-
-<script>
-
-	// toggle nav on click
-	const navtoggle = document.getElementById('navtoggle');
-	const nav = document.getElementById('nav');
-	if (navtoggle) {
-		navtoggle.addEventListener('click', () => {
-			if (nav) {
-				nav.classList.toggle('hidden');
-			}
-		});
-	}
-
-	// if window is resized to larger than sm, show nav regardless of toggle
-	window.addEventListener('resize', () => {
-		if (window.innerWidth > 640) {
-			nav.classList.remove('hidden');
-		}
-		// if window is resized to smaller than sm, hide nav if it's not already hidden
-		if (window.innerWidth < 640) {
-			if (!nav.classList.contains('hidden')) {
-				nav.classList.add('hidden');
-			}
-		}
-
-	});
-
-</script>

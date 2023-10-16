@@ -7,7 +7,6 @@ import '@fontsource/vt323'
 // Local imports
 import Head from '@components/Head.astro';
 import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
 
 import { ViewTransitions, fade} from 'astro:transitions';
 
@@ -31,14 +30,13 @@ const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
 <html lang="en">
 	<Head title={ title }
 	/>
-	<body transition:animate={fade({ duration: '0.6s' })}>
+	<body>
 		<Header subtitle={title} current={current}/>
 		<div data-scroll-watcher="header" />
 		<Wrapper.default meta={meta} >
 			<slot name="subtitle"/>
 			<slot name="content"/>
 		</Wrapper.default>
-		<Footer/>
 	</body>
 </html>
 
@@ -49,42 +47,42 @@ const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
 
 <script>
 
-	const scrollObserver = ()=> {
+	// const scrollObserver = ()=> {
     // Select the body element
-    const body = document.querySelector("body");
+    // const body = document.querySelector("body");
 
     // Create a new IntersectionObserver with a callback function
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            // Check the data attribute of the observed element
-            switch ((entry.target as HTMLElement).dataset.scrollWatcher) {
-                case "header":
-                    body.classList.toggle("scroll", !entry.isIntersecting);
-                    break;
-				// TODO: implement footer
-                case "footer":
-                    body.classList.toggle("credits-active", entry.isIntersecting);
-                    break;
-            }
-        });
-    }, {
-        // Set root margin for the IntersectionObserver
-        rootMargin: "150px 0px -45px 0px"
-    });
+    // const observer = new IntersectionObserver((entries) => {
+    //     entries.forEach((entry) => {
+    //         // Check the data attribute of the observed element
+    //         switch ((entry.target as HTMLElement).dataset.scrollWatcher) {
+    //             case "header":
+    //                 body.classList.toggle("scroll", !entry.isIntersecting);
+    //                 break;
+	// 			// TODO: implement footer
+    //             case "footer":
+    //                 body.classList.toggle("credits-active", entry.isIntersecting);
+    //                 break;
+    //         }
+    //     });
+    // }, {
+    //     // Set root margin for the IntersectionObserver
+    //     rootMargin: "150px 0px -45px 0px"
+    // });
 
 
     // Observe elements with data-scroll-watcher attribute set to "header" and "footer"
-    const header = document.querySelector('[data-scroll-watcher="header"]');
-    const footer = document.querySelector('[data-scroll-watcher="footer"]');
-    if (header) {
-        observer.observe(header);
-    }
-    if (footer) {
-        observer.observe(footer);
-    }
-}
+//     const header = document.querySelector('[data-scroll-watcher="header"]');
+//     const footer = document.querySelector('[data-scroll-watcher="footer"]');
+//     if (header) {
+//         observer.observe(header);
+//     }
+//     if (footer) {
+//         observer.observe(footer);
+//     }
+// }
 
-	window.addEventListener("load", () => {
-    scrollObserver();
-});
+// 	window.addEventListener("load", () => {
+//     scrollObserver();
+// });
 </script> 

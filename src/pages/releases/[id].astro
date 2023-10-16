@@ -24,19 +24,18 @@ const { Content } = await Astro.props.render
 
 <Layout title=`${release.albumTitle} by ${release.artist}` layout="content" current="/releases" >
     <div slot="subtitle" >
-        <div class="container">
-            <h2>{release.albumTitle}</h2>
-            <h3>{release.artist}</h3>
-            <Image 
-                src={release.artwork} 
-                alt={release.albumTitle} class="shadow-md" 
-                width="600" 
-                height="600" 
-                loading="lazy"
-                decoding="async" 
-                transition:name=`${release.id}-artwork`
-                transition:persist
-                />
+        <div class="container"
+        >
+        <h2>{release.artist}</h2>
+        <Image 
+            transition:name=`${release.id}`
+            src={release.artwork} 
+            alt={release.albumTitle} class="shadow-md" 
+            width="600" 
+            height="600" 
+            loading="lazy"
+            decoding="async" 
+            />
         </div>
     </div>
     <div slot="content">

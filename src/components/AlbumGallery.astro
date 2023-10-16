@@ -9,23 +9,20 @@ const releases = await getCollection("releases");
     {releases.reverse().map((album) => (
         
         <a href={`/releases/${album.data.id}`}>
-            <div class="container">
-                    <h2>{
-                        album.data.albumTitle}
-                    </h2>
-                    <h3>
-                        {album.data.artist}
-                    </h3>
-                    <div transition:name={`${album.data.id}-artwork`}>
-                        <Image 
-                        src={album.data.artwork}
-                        alt={album.data.albumTitle} 
-                        class="shadow-md" 
-                        width="600" height="600"
-                        decoding="async"
-                        loading="lazy"
-                        />
-                    </div>
+            <div class="text-center">
+                <h2>{
+                    album.data.albumTitle}
+                </h2>
+                <h3>
+                    {album.data.artist}
+                </h3>
+                <Image 
+                    src={album.data.artwork}
+                    alt={album.data.albumTitle} 
+                    class="shadow-md " 
+                    width="600" height="600"
+                    transition:name={`${album.data.id}`}
+                />
             </div>
         </a>
     ))}
