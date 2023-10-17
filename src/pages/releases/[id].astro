@@ -23,7 +23,11 @@ const { Content } = await Astro.props.render
 ---
 
 <Layout title=`${release.albumTitle} by ${release.artist}` layout="content" current="/releases" >
-    <div slot="subtitle" >
+    <div slot="sidebar" >
+        releases
+    </div>
+    <div slot="content">
+        
         <div class="container"
         >
         <h2>{release.artist}</h2>
@@ -38,8 +42,6 @@ const { Content } = await Astro.props.render
             decoding="async" 
             />
         </div>
-    </div>
-    <div slot="content">
         <div class="prose"> 
             <Content/>
         </div> 

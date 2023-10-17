@@ -1,25 +1,53 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const shows = await getCollection('shows').then(shows => shows.map(({ slug, data }) => ({ slug, ...data })))
+const upcomingShows = shows.filter(show => new Date(show.date) > new Date())
+const pastShows = shows.filter(show => !upcomingShows.includes(show))
+
 
 ---
 
+
+
 <Layout title="shows" current="/shows" layout="content">
-  <h1 slot="subtitle">Shows</h1>
-  <div slot="content">
-    <ul>
-      <li>One</li>
-      <li>One</li>
-      <li>One</li>
-      <li>One</li>
-      <li>One</li>
-      <li>One</li>
-      <li>One</li>
-      <li>One</li>
-      <li>One</li>
-    </ul>
+  <h1 slot="sidebar"></h1>
+  
+    
+    <div slot="content" class="prose">
 
+      <h2 class="subheader text-xl bg-black text-white p-4" text>Upcoming</h2>
+
+      {
+        upcomingShows.map(show => {
+          return (
+            <div>
+              <a href={`./shows/${show.slug}`}>
+              <h3>{show.title}</h3>
+              </a>
+            </div>
+          )
+        })
+      }
+
+      <h2 class="subheader text-xl bg-black text-white p-4">Past Shows: </h2>
+
+      {
+        pastShows.map(show => {
+          return (
+            <div>
+              <h3>{show.title}</h3>
+            </div>
+          )
+        })
+      }
+    </div>
   </div>
-
-
-
 </Layout>
+
+<style>
+  .subheader{
+    font-family: 'Young Serif', serif;
+  }
+  </style>

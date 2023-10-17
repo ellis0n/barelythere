@@ -26,7 +26,7 @@ const frontmatter = Astro.props.post.frontmatter;
 
 
   <Layout title={frontmatter.title} current="/blogs" layout="blog" meta={frontmatter}>
-      <div slot="title">
+      <div slot="sidebar" >
         <h1>{frontmatter.title}</h1>
         <p>{frontmatter.date}</p>
       </div>
@@ -34,3 +34,5 @@ const frontmatter = Astro.props.post.frontmatter;
         <Content/>
       </div>
   </Layout>
+
+```

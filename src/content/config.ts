@@ -45,4 +45,18 @@ const releases = defineCollection({
 		}),
 });
 
-export const collections = { posts, authors, releases };
+const shows = defineCollection({
+	type: "content",
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			venue: z.string().optional(),
+			date: z.date(),
+			poster: image(),
+			draft: z.boolean().optional(),
+			tickets: z.string().url().optional(),
+			tags: z.string().optional(),
+		}),
+});
+
+export const collections = { posts, authors, releases, shows };
