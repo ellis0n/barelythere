@@ -49,6 +49,7 @@ const shows = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
 		z.object({
+			featured: z.boolean().optional(),
 			title: z.string(),
 			venue: z.string().optional(),
 			date: z.date(),

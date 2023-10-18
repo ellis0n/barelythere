@@ -1,14 +1,18 @@
 ---
-import AlbumGallery from '@components/AlbumGallery.astro';
-import Layout from '../layouts/Layout.astro';
+import AlbumGallery from "@components/AlbumGallery.astro";
+import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const releases = await getCollection("releases");
 ---
 
 <Layout title="releases" current="/releases" layout="content">
-	<h1 slot="sidebar">Releases</h1>
+	<div slot="sidebar"></div>
 	<div slot="content">
-		<AlbumGallery />
+		<div class="mb-20">
+			<h1 class="text-6xl bg-black text-white">releases</h1>
+
+			<AlbumGallery />
+		</div>
 	</div>
 </Layout>
