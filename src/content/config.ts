@@ -38,6 +38,7 @@ const releases = defineCollection({
 			video: z.string().url().optional(),
 			draft: z.boolean().optional(),
 			bandcamp: z.string().url().optional(),
+			bandcampEmbed: z.string().url().optional(),
 			spotify: z.string().url().optional(),
 			appleMusic: z.string().url().optional(),
 			soundcloud: z.string().url().optional(),

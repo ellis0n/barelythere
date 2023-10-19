@@ -1,40 +1,40 @@
---- 
+---
 // Fonts
-import '@fontsource/dotgothic16';
-import '@fontsource/young-serif'
-import '@fontsource/vt323'
+import "@fontsource/dotgothic16";
+import "@fontsource/young-serif";
+import "@fontsource/vt323";
+import "@fontsource-variable/dm-sans";
 
 // Local imports
-import Head from '@components/Head.astro';
-import Header from '@components/Header.astro';
-
+import Head from "@components/Head.astro";
+import Header from "@components/Header.astro";
+import Sidebar from "@components/Sidebar.astro";
 
 // Types
 interface Props {
 	title: string;
 	current: string;
 	layout: string;
-	meta?: object 		// Optional meta TODO: decide on this
+	meta?: object; // Optional meta TODO: decide on this
 }
 
-
 const { title, current, layout, meta } = Astro.props;
-
-const layoutName = layout.charAt(0).toUpperCase() + layout.slice(1).toLowerCase();
+const layoutName =
+	layout.charAt(0).toUpperCase() + layout.slice(1).toLowerCase();
 const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
-
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<Head title={ title }
-	/>
+	<Head title={title} />
 	<body>
-		<Header current={current}/>
-		<div data-scroll-watcher="header" />
-		<Wrapper.default meta={meta} >
-			<slot name="sidebar"/>
-			<slot name="content"/>
+		<Header current={current} />
+		<div data-scroll-watcher="header"></div>
+		<Wrapper.default meta={meta}>
+			<!-- <Sidebar> -->
+			<slot name="sidebar" />
+			<!-- </Sidebar> -->
+			<slot name="content" />
 		</Wrapper.default>
 	</body>
 </html>

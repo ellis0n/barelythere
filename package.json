@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/react": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
+    "@fontsource-variable/dm-sans": "^5.0.3",
     "@fontsource/dotgothic16": "^5.0.10",
     "@fontsource/vt323": "^5.0.8",
     "@fontsource/young-serif": "^5.0.11",

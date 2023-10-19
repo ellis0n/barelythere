@@ -5,46 +5,52 @@ import { type GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const releases = await getCollection("releases")
-    return releases.map((release) => ({
-        params: {
-            id: release.data.id
-        },
-        props: {
-            release: release.data,
-            render: release.render()
-        }
-    }))
-}
+	const releases = await getCollection("releases");
+	return releases.map((release) => ({
+		params: {
+			id: release.data.id,
+		},
+		props: {
+			release: release.data,
+			render: release.render(),
+		},
+	}));
+};
 
-const release = Astro.props.release
-const { Content } = await Astro.props.render
-
+const release = Astro.props.release;
+const { Content } = await Astro.props.render;
 ---
 
-<Layout title=`${release.albumTitle} by ${release.artist}` layout="content" current="/releases" >
-    <div slot="sidebar" >
-        releases
-    </div>
-    <div slot="content">
-        
-        <div class="container"
-        >
-        <h2>{release.artist}</h2>
-        <Image 
-            transition:name=`${release.id}`
-            src={release.artwork} 
-            alt={release.albumTitle}
-            class="shadow-md " 
-            width="600" 
-            height="600" 
-            loading="lazy"
-            decoding="async" 
-            />
-        </div>
-        <div class="prose"> 
-            <Content/>
-        </div> 
-    </div>
-
-</Layout
+<Layout
+	title=`${release.albumTitle} by ${release.artist}`
+	layout="content"
+	current="/releases"
+>
+	<!-- <div slot="sidebar">releases</div> -->
+	<div slot="content">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<div class="">
+				<Image
+					transition:name=`${release.id}`
+					src={release.artwork}
+					alt={release.albumTitle}
+					class="shadow-md mb-4"
+					decoding="async"
+					width={1200}
+					height={1200}
+				/>
+				<iframe
+					style="border: 0; width: 100%; height: 400px;"
+					src={release.bandcampEmbed}
+					seamless
+				>
+					<a href={release.bandcamp}> {release.albumTitle} by {release.artist}
+					</a>
+				</iframe>
+			</div>
+			<div class="prose">
+				<Content />
+			</div>
+		</div>
+	</div>
+</Layout>

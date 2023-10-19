@@ -13,17 +13,35 @@ const shows = await getCollection("shows").then((shows) =>
 // Split shows into upcoming and past
 const upcomingShows = shows.filter((show) => new Date(show.date) > new Date());
 const pastShows = shows.filter((show) => !upcomingShows.includes(show));
+
+// function that returns date in format: "Month Day, Year"
+function formatDate(date: string | number | Date) {
+	const options = { year: "numeric", month: "long", day: "numeric" };
+	return new Date(date).toLocaleDateString("en-US", options);
+}
+
+//TODO:
+//
+// - add dynamic bg image to upcoming shows (or just create astro component for bg bar)
+//
+// - on hover of upcoming show, show poster in view
+//
+// - toggle past shows list on click for mobile view
+//
+// - view transition: use background image and header as the primary element for // [show] page, not the current poster
+//
+// - paginate past shows list once some content is added
 ---
 
 <Layout title="shows" current="/shows" layout="content">
-	<h1 slot="sidebar"></h1>
+	<!-- <h1 slot="sidebar"></h1> -->
 
-	<div slot="content" class="flex flex-col sm:grid relative sm:grid-cols-2">
+	<div slot="content" class="grid relative sm:grid-cols-2 sm:gap-12">
 		<div class="text-2xl">
 			<h2 class="text-6xl bg-black text-white">shows</h2>
 			{
 				upcomingShows.length === 0 && (
-					<h2 class="text-2xl text-black mt-2 px-pb underline">upcoming tba</h2>
+					<h2 class="text-black mt-2 px-pb underline">upcoming tba</h2>
 				)
 			}
 			{
@@ -31,7 +49,7 @@ const pastShows = shows.filter((show) => !upcomingShows.includes(show));
 					<h2 class="text-4xl text-black mt-2 px-pb underline">upcoming:</h2>
 				)
 			}
-			<div class="ml-2">
+			<div class="">
 				{
 					upcomingShows.map((show) => {
 						return (
@@ -41,7 +59,7 @@ const pastShows = shows.filter((show) => !upcomingShows.includes(show));
 									class="bg-[image:var(--image-url)] bg-center bg-cover bg-blend-screen bg-clip-border text-2xl sm:text-6xl"
 								>
 									<a href={`./shows/${show.slug}`}>
-										<h3 class="text-white bg-black bg-opacity-75 pl-2">
+										<h3 class="text-white bg-black bg-opacity-60 pl-2">
 											{show.title}
 										</h3>
 									</a>
@@ -65,13 +83,39 @@ const pastShows = shows.filter((show) => !upcomingShows.includes(show));
 				}
 			</div>
 		</div>
+
+		<!-- Featured poster -->
+
 		<div class="container h-20 relative">
-			<div class="inset-0 absolute">
+			<div class="inset-0 absolute text-white">
 				{
 					upcomingShows.map((show) => {
-						return (
-							<Image src={show.poster} alt={show.title} class="shadow-md" />
-						);
+						let first = upcomingShows[0];
+
+						if (show === first) {
+							return (
+								<>
+									<div class="mt-12 sm:mt-0 z-50 text-white flex justify-between">
+										<h3 class="bg-black text-white">{show.title}</h3>
+										<h4>{formatDate(show.date)}</h4>
+									</div>
+									<Image src={show.poster} alt={show.title} class="shadow-md" />
+								</>
+							);
+						} else {
+							return (
+								<div class="hidden">
+									<div class="z-50 text-black relative">
+										<h3>{show.title}</h3>
+									</div>
+									<Image
+										src={show.poster}
+										alt={show.title}
+										class=" shadow-md"
+									/>
+								</div>
+							);
+						}
 					})
 				}
 				{
@@ -87,3 +131,5 @@ const pastShows = shows.filter((show) => !upcomingShows.includes(show));
 		</div>
 	</div>
 </Layout>
+
+<script></script>
