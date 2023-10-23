@@ -5,22 +5,26 @@ const releases = await getCollection("releases");
 ---
 
 <div
-	class="pb-12 mt-20 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4"
+	class="pb-12 mt-20 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 absolute"
 >
 	{
 		releases.reverse().map((album) => (
-			<a href={`/releases/${album.data.id}`}>
-				<h2>{album.data.albumTitle}</h2>
-				<h3>{album.data.artist}</h3>
-				<Image
-					src={album.data.artwork}
-					alt={album.data.albumTitle}
-					class="shadow-lg hover:shadow-sm rounded-sm transition:shadow duration-200 ease-in-out"
-					width="1200"
-					height="1200"
-					transition:name={`${album.data.id}`}
-				/>
-			</a>
+			<div class="bg-white relative">
+				<a href={`/releases/${album.data.id}`}>
+					<div class="absolute z-20 bg-gray-400 text-white">
+						<h2>{album.data.albumTitle}</h2>
+						<h3>{album.data.artist}</h3>
+					</div>
+					<Image
+						src={album.data.artwork}
+						alt={album.data.albumTitle}
+						class="shadow-lg hover:shadow-sm rounded-sm transition:shadow duration-200 ease-in-out "
+						width={1200}
+						height={1200}
+						transition:name={`${album.data.id}`}
+					/>
+				</a>
+			</div>
 		))
 	}
 </div>
