@@ -5,12 +5,11 @@ import { getCollection } from "astro:content";
 const releases = await getCollection("releases");
 ---
 
-<Layout title="releases" current="/releases" layout="content">
+<Layout title="releases" current="/releases" layout="content" fixed={true}>
 	<div slot="sidebar"></div>
 	<div slot="content">
-		<div class="mb-20">
+		<div class="mt-70">
 			<h1 class="text-6xl bg-black text-white">releases</h1>
-
 			<AlbumGallery />
 		</div>
 	</div>

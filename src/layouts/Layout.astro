@@ -16,9 +16,10 @@ interface Props {
 	current: string;
 	layout: string;
 	meta?: object; // Optional meta TODO: decide on this
+	fixed?: boolean;
 }
 
-const { title, current, layout, meta } = Astro.props;
+const { title, current, layout, meta, fixed } = Astro.props;
 const layoutName =
 	layout.charAt(0).toUpperCase() + layout.slice(1).toLowerCase();
 const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
@@ -27,9 +28,9 @@ const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
 <!doctype html>
 <html lang="en">
 	<Head title={title} />
-	<body>
-		<Header current={current} />
-		<div data-scroll-watcher="header"></div>
+	<body class="bg-gray-200">
+		<Header current={current} fixed={fixed} />
+		<div data-scroll-watcher="header" class={fixed ? "sm:pt-60" : ""}></div>
 		<Wrapper.default meta={meta}>
 			<!-- <Sidebar> -->
 			<slot name="sidebar" />

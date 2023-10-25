@@ -28,14 +28,12 @@ const { Content } = await Astro.props.render;
 		<h1>{show.title}</h1>
 		<h2>{show.slug}</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			<div transition:name={show.slug}>
+			<div>
 				<Image
 					src={show.poster}
 					alt={show.title}
 					class="shadow-md mb-4"
-					decoding="async"
-					width={800}
-					height={800}
+					transition:name={show.slug}
 				/>
 			</div>
 			<div class="prose">
