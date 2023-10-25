@@ -1,17 +1,22 @@
 ---
-import Navbar from './Navbar.astro';
+import Navbar from "./Navbar.astro";
 
 interface Props {
 	current: string;
-} 
+	fixed?: boolean;
+}
 
-const { current} = Astro.props;
+const { current, fixed } = Astro.props;
 ---
 
-<header class="banner flex p-2 mb-4 justify-left sm:justify-center sm:align-center sm:text-center sm:flex-wrap sm:flex-col">
+<header
+	class=`banner flex p-2 bg-white bg-opacity-60 mb-4 justify-left ${fixed ? 'sm:fixed' : 'sm:flex' } sm:w-full sm:z-50 sm:justify-center sm:align-center sm:text-center sm:flex-wrap sm:flex-col`
+>
 	<a href="/">
-		<h1 class="text-6xl mr-24 sm:mr-0 sm:text-7wxl md:text-8xl" >barely there</h1>
-		<Navbar current={current}/>
+		<h1 class="text-6xl mr-24 sm:mr-0 sm:text-7wxl md:text-8xl">
+			barely there
+		</h1>
+		<Navbar current={current} />
 	</a>
 </header>
 
@@ -21,3 +26,4 @@ const { current} = Astro.props;
 	}
 </style>
 
+<script></script>
