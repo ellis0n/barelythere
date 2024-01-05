@@ -10,14 +10,14 @@ const { current, fixed } = Astro.props;
 ---
 
 <header
-	class=`banner flex p-2 bg-white bg-opacity-60 mb-4 justify-left ${fixed ? 'sm:fixed' : 'sm:flex' } sm:w-full sm:z-50 sm:justify-center sm:align-center sm:text-center sm:flex-wrap sm:flex-col`
+	class=`banner grid grid-cols-5 fixed w-full mb-20 py-8 z-20 bg-white bg-opacity-90  ${fixed ? "top-0" : ""}`
 >
-	<a href="/">
-		<h1 class="text-6xl mr-24 sm:mr-0 sm:text-7wxl md:text-8xl">
+	<a href="/" class="col-start-2">
+		<h1 class="text-6xl scroll:text-2xl">
 			barely there
 		</h1>
-		<Navbar current={current} />
 	</a>
+	<Navbar current={current} />
 </header>
 
 <style>
@@ -25,5 +25,3 @@ const { current, fixed } = Astro.props;
 		font-family: Young Serif;
 	}
 </style>
-
-<script></script>

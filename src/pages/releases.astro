@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 const releases = await getCollection("releases");
 ---
 
-<Layout title="releases" current="/releases" layout="content" fixed={true}>
+<Layout title="releases" current="/releases" layout="content">
 	<div slot="sidebar"></div>
 	<div slot="content">
 		<div class="mt-70">

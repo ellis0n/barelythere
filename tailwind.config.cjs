@@ -1,5 +1,6 @@
 const colors = require("tailwindcss/colors");
 const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -13,5 +14,12 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require("@tailwindcss/typography")],
+	plugins:
+		[
+			plugin(function ({ addVariant }) {
+				addVariant('scroll', ':merge(.scroll) &');
+				addVariant('is-checked', ':merge(:checked +) &');
+			}), 
+			require("@tailwindcss/typography")
+		]
 };

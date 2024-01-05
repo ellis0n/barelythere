@@ -18,13 +18,17 @@ const links = [
 		text: "blogs",
 		href: "/blogs",
 	},
-	// {
-	//     text: 'zines',
-	//     href: '/zines',
-	// },
+	{
+		text: "tv",
+		href: "/tv",
+	},
+	{
+	    text: 'zines',
+	    href: '/zines',
+	},
 ];
 
-const checkUrl = (url: string, href: string) => {
+const setActive = (url: string, href: string) => {
 	if (url === href) {
 		return "active";
 	}
@@ -32,29 +36,27 @@ const checkUrl = (url: string, href: string) => {
 };
 ---
 
-<div
-	class="navbar mt-2 text-black bg-white rounded-md drop-shadow-md fixed right-2 top-22 sm:active sm:static sm:flex sm:flex-row sm:justify-center sm:text-xl sm:mt-4 md:text-xl lg:text-2xl z-10"
->
-	<nav class="navbar-inner sm:pb-4 sm:bg-[#fff]">
+	<nav class="col-start-3">
+		
 		<ul
-			class="grid justify-items-end sm:flex sm:flex-row sm:justify-center ml-4 sm:ml-0"
+			class=`grid grid-cols-${links.length} scroll:hidden`
 		>
 			{
 				links.map((link, index) => (
-					<li
-						class={`nav-item ${
-							index > 0 ? "mt-4 " : " ml-6 sm:ml-0 sm:mt-4"
-						} sm:px-4 mx-1    ${checkUrl(link.href, current)}`}
-					>
-						<a href={link.href}>
-							<div>{link.text}</div>
-						</a>
-					</li>
+					<a href={link.href} >
+						<li
+							class={
+									`nav-item flex justify-center ${	index > 0 ? "mt-4 " : " ml-6 sm:ml-0 sm:mt-4"} sm:px-4 mx-1
+									${setActive(link.href, current)}
+								`}
+						>
+							{link.text}
+						</li>
+					</a>
 				))
 			}
 		</ul>
 	</nav>
-</div>
 
 <style>
 	.nav-item:hover,

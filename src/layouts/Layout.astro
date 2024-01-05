@@ -16,10 +16,9 @@ interface Props {
 	current: string;
 	layout: string;
 	meta?: object; // Optional meta TODO: decide on this
-	fixed?: boolean;
 }
 
-const { title, current, layout, meta, fixed } = Astro.props;
+const { title, current, layout, meta, } = Astro.props;
 const layoutName =
 	layout.charAt(0).toUpperCase() + layout.slice(1).toLowerCase();
 const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
@@ -29,8 +28,8 @@ const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
 <html lang="en">
 	<Head title={title} />
 	<body class="bg-gray-200">
-		<Header current={current} fixed={fixed} />
-		<div data-scroll-watcher="header" class={fixed ? "sm:pt-60" : ""}></div>
+		<div data-scroll-watcher="header" />
+		<Header current={current}/>
 		<Wrapper.default meta={meta}>
 			<!-- <Sidebar> -->
 			<slot name="sidebar" />
@@ -39,3 +38,27 @@ const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
 		</Wrapper.default>
 	</body>
 </html>
+
+<script>
+	const body = document.querySelector('body');
+	const observeHeader = document.querySelector(
+		'[data-scroll-watcher="header"]',
+	);
+    
+	const scrollObserver = new IntersectionObserver(
+		(positions) => {
+			positions.forEach((position) => {
+				if (position.target instanceof HTMLElement) {
+					switch (position.target.dataset.scrollWatcher) {
+						case 'header':
+							body?.classList.toggle('scroll', !position.isIntersecting);
+							break;
+					}
+				}
+			});
+		},
+		{ rootMargin: '150px 0px -45px 0px' },
+	);
+
+	if (observeHeader) scrollObserver.observe(observeHeader);
+</script>
