@@ -18,14 +18,14 @@ const links = [
 		text: "blogs",
 		href: "/blogs",
 	},
-	{
-		text: "tv",
-		href: "/tv",
-	},
-	{
-	    text: 'zines',
-	    href: '/zines',
-	},
+	// {
+	// 	text: "tv",
+	// 	href: "/tv",
+	// },
+	// {
+	//     text: 'zines',
+	//     href: '/zines',
+	// },
 ];
 
 const setActive = (url: string, href: string) => {
@@ -35,18 +35,18 @@ const setActive = (url: string, href: string) => {
 	return "";
 };
 ---
-
-	<nav class="col-start-3">
+	<div class="scroll:hidden col-start-3 ">
+	<nav class="flex justify-end">
 		
 		<ul
-			class=`grid grid-cols-${links.length} scroll:hidden`
+			class=`grid grid-cols-3 flex justify-center`
 		>
 			{
 				links.map((link, index) => (
 					<a href={link.href} >
 						<li
 							class={
-									`nav-item flex justify-center ${	index > 0 ? "mt-4 " : " ml-6 sm:ml-0 sm:mt-4"} sm:px-4 mx-1
+									`nav-item flex justify-center ${	index > 0 ? "mt-4 " : " ml-6 sm:ml-0 sm:mt-4"}
 									${setActive(link.href, current)}
 								`}
 						>
@@ -57,11 +57,18 @@ const setActive = (url: string, href: string) => {
 			}
 		</ul>
 	</nav>
+	</div>
+	 <button class="relative group hidden scroll:visible">
+        <svg viewBox="0 0 100 80" width="40" height="40">
+			<rect width="100" height="20"></rect>
+			<rect y="30" width="100" height="20"></rect>
+			<rect y="60" width="100" height="20"></rect>
+		</svg>
+      </button>
 
 <style>
 	.nav-item:hover,
 	.active {
-		box-shadow: inset px 0px 0px 2rem rgba(255, 255, 255, 0.219);
 		transition: box-shadow 0.1s;
 		background: black;
 		color: #fff;

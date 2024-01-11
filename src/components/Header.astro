@@ -1,27 +1,24 @@
 ---
+import Logo from "./Logo.astro";
 import Navbar from "./Navbar.astro";
 
 interface Props {
 	current: string;
-	fixed?: boolean;
 }
 
-const { current, fixed } = Astro.props;
+const { current } = Astro.props;
 ---
 
 <header
-	class=`banner grid grid-cols-5 fixed w-full mb-20 py-8 z-20 bg-white bg-opacity-90  ${fixed ? "top-0" : ""}`
+	class=`banner fixed flex justify-center w-full py-3 z-20 bg-white  bg-opacity-90`
 >
-	<a href="/" class="col-start-2">
-		<h1 class="text-6xl scroll:text-2xl">
-			barely there
-		</h1>
-	</a>
-	<Navbar current={current} />
+	<div class="w-content justify-center items-center grid grid-cols-header sm:grid-cols-header-sm sm:gap-4 scroll:grid-cols-0  align-center transition-[font-size] text-1200 scroll:text-600">
+		<a href="/" class="col-start-2 h-[6em] w-[7em] sm:w-[9em]">
+			<Logo
+				fill="#000"
+			/>
+		</a>
+		<Navbar current={current} />
+	</div>
 </header>
 
-<style>
-	header {
-		font-family: Young Serif;
-	}
-</style>

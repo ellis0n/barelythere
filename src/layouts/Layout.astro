@@ -8,7 +8,7 @@ import "@fontsource-variable/dm-sans";
 // Local imports
 import Head from "@components/Head.astro";
 import Header from "@components/Header.astro";
-import Sidebar from "@components/Sidebar.astro";
+import Footer from "@components/Footer.astro";
 
 // Types
 interface Props {
@@ -31,11 +31,9 @@ const Wrapper = await import(`../layouts/${layoutName}Layout.astro`);
 		<div data-scroll-watcher="header" />
 		<Header current={current}/>
 		<Wrapper.default meta={meta}>
-			<!-- <Sidebar> -->
-			<slot name="sidebar" />
-			<!-- </Sidebar> -->
 			<slot name="content" />
 		</Wrapper.default>
+		<Footer/>
 	</body>
 </html>
 
